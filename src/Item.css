@@ -1,0 +1,110 @@
+.item-container {
+    width: calc(25% - 20px);
+    margin: 10px;
+    padding: 0.15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;  /* Essential for containing the absolute .item-details */
+    cursor: pointer;
+    overflow: hidden; /* Ensures no child element bleeds outside the container */
+}
+.item-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.item-details {
+    background-color: #f0f0f0;
+    width: 100%;
+    padding: 5px 5px;
+    text-align:left;
+}
+
+.item-name, .item-price, .item-description {
+    margin: 10px 0;
+}
+
+.item-container {
+    cursor: pointer; /* Makes the cursor a pointer when hovering over the item */
+}
+
+.item-container:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Darken the background slightly */
+}
+
+.item-container:hover .item-image,
+.item-container:hover .item-details {
+    filter: brightness(70%); /* Darken the image and details */
+}
+
+.item-container, .item-image, .item-details, .item-name, .item-price, .item-description {
+    box-sizing: border-box; /* Apply this universally within the container */
+}
+
+.item-image, .item-details {
+    width: 100%; /* Ensures alignment under the same parent width */
+}
+
+.item-price {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align prices to the left */
+    gap: 10px; /* Space between original and discounted prices */
+}
+
+.original-price {
+    text-decoration: line-through; /* Strikethrough effect */
+    color: grey; /* Dim the color to indicate it's not the effective price */
+}
+
+.discount-price {
+    color: black; /* Highlight the discounted price */
+    font-weight: bold; /* Make it more prominent */
+}
+
+.item-buttons {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Align center of buttons with center of container */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Align buttons in the middle */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.item-container:hover .item-buttons {
+    opacity: 1; /* Show the buttons when item is hovered */
+}
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff; /* Dark background for contrast */
+    color: gold; /* Gold text color */
+    border-radius: 0; /* Rectangular shape */
+}
+
+.like-btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent; /* Transparent background */
+    color: rgb(255, 251, 251); /* Red color for the heart */
+    font-size: 15px; /* Larger font size for visibility */
+}
+
+.add-to-cart-btn:hover, .like-btn:hover {
+    opacity: 0.8; /* Slight opacity change on hover */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e0e0e0; /* Slightly darken button on hover for feedback */
+}
