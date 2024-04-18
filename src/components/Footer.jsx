@@ -1,10 +1,10 @@
-import React from 'react';
 import '../App.css';
+import './Footer.css';
 const Footer = () => {
     return (
-        <footer class="store-footer">
-            <p class="footer-title">HOME HEAVEN</p>
-            <ul class="footer-location">
+        <footer className="store-footer">
+            <p className="footer-title">HOME HEAVEN</p>
+            <ul className="footer-location">
                 <li>Lima 312</li>
                 <li>UADE</li>
                 <li>Argentina</li>

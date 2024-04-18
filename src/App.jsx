@@ -8,7 +8,6 @@ function App() {
   return (
     <>
     <Navbar/>
-    <Footer />
     <Card
       imgSrc="https://foter.com/photos/400/alfonsina-free-standing-swirl-toilet-paper-holder.jpg"
       imgAlt="Card Image 1"
@@ -16,6 +15,7 @@ function App() {
       description="Description"
       price="$299"
     />  
+    <Footer />
     </>
 
   
