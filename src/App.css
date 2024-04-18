@@ -1,11 +1,11 @@
 
 .store-footer{
   border-top: 2px solid #E5E5E5;
-  font-size: 0.8em;
+  font-size: 1.5;
 }
 .footer-title {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .footer-location li{
@@ -17,4 +17,16 @@
 footer hr{
   border: 1px solid #E5E5E5;
   margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .store-footer{
+    font-size: 0.8em;
+  }
+  .footer-title {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+
 }
