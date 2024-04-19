@@ -1,0 +1,25 @@
+{
+    "productos": [
+        {
+            "producto": "Lámpara de mesa",
+            "descripcion": "Lámpara de mesa moderna con base de metal y pantalla de tela",
+            "precio": 50000,
+            "vendedor": "Decoraciones Modernas S.A.",
+            "recomendado": true
+        },
+        {
+            "producto": "Almohadon decorativo",
+            "descripcion": "Almohadon decorativo de terciopelo con estampado floral",
+            "precio": 10000,
+            "vendedor": "Textiles Elegantes Ltda.",
+            "recomendado": false
+        },
+        {
+            "producto": "Espejo de pared",
+            "descripcion": "Espejo de pared rectangular con marco de madera",
+            "precio": 70000,
+            "vendedor": "Muebles y Decoración del Hogar S.A.",
+            "recomendado": true
+        }
+    ]
+}
