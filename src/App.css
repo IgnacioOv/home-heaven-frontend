@@ -17,3 +17,21 @@ footer hr{
   border: 1px solid #E5E5E5;
   margin: 1rem 0;
 }
+
+.categories-bar{
+  background-color: #89B0AE;
+  padding: 0.5%;
+  text-align: center;
+
+}
+
+.categories-bar li{
+  list-style-type: none;
+  color: white;
+  display: inline;
+  justify-content: center;
+  padding: 6%;
+  font-size: small;
+}
+
+
