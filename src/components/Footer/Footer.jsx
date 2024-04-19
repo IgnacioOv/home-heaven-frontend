@@ -1,4 +1,4 @@
-import '../App.css';
+import './Footer.css';
 const Footer = () => {
     return (
         <footer className="store-footer">
