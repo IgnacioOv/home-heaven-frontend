@@ -12,8 +12,8 @@ const Home = () => {
                 <p>RECOMENDADOS</p>
                 </div>
                 <h1>Descubrí nuestros productos destacados</h1>
-                </div>
-                <ProductsCarousel />
+            </div>
+            <ProductsCarousel />
         </>
     );
 };

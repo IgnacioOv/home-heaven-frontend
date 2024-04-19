@@ -8,8 +8,8 @@ const ProductsCarousel = () => {
         <div className="carousel">
             {products.map((product) => (
                     <Card
-                    title={product.producto}
-                    
+                    imgSrc={product.image}
+                    title={product.producto} 
                     price={product.precio}
                   />  
             ))}
