@@ -1,6 +1,7 @@
 
 .store-footer{
   border-top: 2px solid #E5E5E5;
+  font-size: 1.5;
 }
 .footer-title {
   font-weight: 600;
@@ -74,4 +75,16 @@ footer hr{
   font-size: 1em;
   margin: 0.5em;
   padding: 0px;
+}
+
+@media (max-width: 768px) {
+  .store-footer{
+    font-size: 0.8em;
+  }
+  .footer-title {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+
 }
