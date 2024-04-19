@@ -1,0 +1,23 @@
+.categories-bar{
+    background-color: #89B0AE;
+    padding: 0.6%;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    z-index: 1000;
+    margin-top: -0.2%;
+    } 
+.categories-bar li{
+    list-style-type: none;
+    color: white;
+    display: inline;
+    justify-content: center;
+    padding: 6%;
+    font-size: small;
+}
+.category{
+    cursor:pointer;
+}
+.category:hover{
+    color: #555B6E;
+}

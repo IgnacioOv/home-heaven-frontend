@@ -1,5 +1,4 @@
-import React from 'react';
-import CategoriesBar from '../CategoriesBar';
+import CategoriesBar from '../CategoriesBar/CategoriesBar';
 import './Home.css';
 
 const Home = () => {
