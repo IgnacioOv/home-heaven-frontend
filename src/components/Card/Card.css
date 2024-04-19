@@ -29,3 +29,21 @@
     color: #3a3a3a;
     
   }
+
+
+@media (max-width: 768px) { 
+  .card-container {
+    width: 95%;
+    margin: 10px auto; 
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    width: 100%; 
+  }
+  .card-title, 
+  .card-description {
+    font-size: 0.9em;/
+  }
+}
