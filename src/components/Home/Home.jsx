@@ -1,6 +1,6 @@
 import CategoriesBar from '../CategoriesBar/CategoriesBar';
 import './Home.css';
-
+import ProductsCarousel from '../ProductsCarousel/ProductsCarousel';
 const Home = () => {
     return (
         <>
@@ -13,6 +13,7 @@ const Home = () => {
                 </div>
                 <h1>Descubrí nuestros productos destacados</h1>
                 </div>
+                <ProductsCarousel />
         </>
     );
 };
