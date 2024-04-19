@@ -7,7 +7,7 @@
     margin: 0.5rem;
     background-color:  #f4f5f7;
     height: fit-content;
-    align-items: center;
+    align-items: left;
   }
 
   .card-img {
@@ -18,6 +18,7 @@
   .card-title {
     margin: 0.5rem 5%;
     color: #3a3a3a;
+    font-weight: 700;
   }
   
   .card-description {
@@ -25,7 +26,25 @@
   }
   .card-price{
     margin: 0.5rem 5%;
-    font-weight: 600;
+    font-weight: 500;
     color: #3a3a3a;
     
   }
+
+
+@media (max-width: 768px) { 
+  .card-container {
+    width: 95%;
+    margin: 10px auto; 
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    width: 100%; 
+  }
+  .card-title, 
+  .card-description {
+    font-size: 0.9em;/
+  }
+}
