@@ -15,7 +15,7 @@ function App() {
       imgAlt="Card Image 1"
       title="Product"
       description="Description"
-      price="$299"
+      price="299"
     />  
     <Footer />
     </>
