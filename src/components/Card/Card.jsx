@@ -1,6 +1,5 @@
 import React from 'react';
-import '../App.css';
-import '../components/Card.css';
+import './Card.css';
 
 
 export const Card = ({
