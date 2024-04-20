@@ -1,31 +1,45 @@
 .footer {
-  background-color: #f8f8f8;
-  padding: 20px 0;
+  padding: 50px 0;
   text-align: center;
-  background-color: #fff;
+  background-color: #f8f8f8;
 }
-
-.footer-line {
-  border-top: 1px solid #ccc;
-  margin: 40px 0;
-}
-
-.footer-content {
+.footer-top {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .footer-column {
   flex: 1;
+  padding: 0 15px;
 }
 
-.footer-middle {
-  flex: 2;
+.footer-logo {
+  width: 35%;
+  height: auto; /* Se ajusta automáticamente al ancho */
 }
 
-.footer-bottom {
-  margin-top: 20px;
+.footer-middle h3 {
+  font-size: 1.2em;
+  margin-top: 3%;
 }
 
-/* Estilos adicionales según necesidades específicas */
+.footer-middle p {
+  font-size: 0.5em;
+}
+
+.footer-small-logo {
+  width: 8%;
+  height: auto; /* Se ajusta automáticamente al ancho */
+  margin-left: 5%;
+  cursor: pointer;
+  margin-top: 4%;
+}
+
+.footer-line {
+  border-top: 1px solid #ccc; /* Cambiado a gris (#ccc) */
+  margin: 20px 0;
+}
+
+.footer-bottom p {
+  font-size: 0.7em;
+}
