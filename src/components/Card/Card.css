@@ -32,6 +32,10 @@
     
   }
 
+  .card-container:hover {
+    transform: translate3D(0,-1px,0) scale(1.03); 
+    transition: 0.25s;
+  }
 
 @media (max-width: 768px) { 
   .card-container {
