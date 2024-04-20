@@ -12,13 +12,10 @@ export const Card = ({
   }) => {
     return (
       <div className="card-container">
-        {imgSrc && imgAlt && (
-          <img src={imgSrc} alt={imgAlt} className="card-img" />
-        )}
-        {title && <h1 className="card-title">{title}</h1>}
-        {description && <p className="card-description">{description}</p>}
-        {price && <p className="card-price">{price}</p>}
-        
+        <img src={imgSrc} alt={imgAlt} className="card-img" />
+        <h2 className="card-title">{title}</h2>
+        <p className="card-description">{description}</p>
+        <p className="card-price">{"$" + price}</p>
       </div>
     );
   };
