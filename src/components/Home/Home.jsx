@@ -1,6 +1,7 @@
 import CategoriesBar from '../CategoriesBar/CategoriesBar';
 import './Home.css';
 import ProductsCarousel from '../ProductsCarousel/ProductsCarousel';
+import VerMasHome from '../VerMasHome/VerMasHome';
 const Home = () => {
     return (
         <>
@@ -11,10 +12,10 @@ const Home = () => {
                 <h1>Viví la experiencia de disfrutar un hogar hecho especialmente para vos</h1>
                 <p>RECOMENDADOS</p>
                 </div>
-                <h1>Descubrí nuestros productos destacados</h1>
+                <h1 className='descubri'>Descubrí nuestros productos destacados</h1>
             </div>
             <ProductsCarousel />
-        </>
+            <VerMasHome className="ver-mas-home"/>        </>
     );
 };
 
