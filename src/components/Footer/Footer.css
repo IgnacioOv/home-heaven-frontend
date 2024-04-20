@@ -1,33 +1,31 @@
+.footer {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  text-align: center;
+  background-color: #fff;
+}
 
-.store-footer{
-    border-top: 2px solid #E5E5E5;
-    font-size: 1.5;
-  }
-  .footer-title {
-    font-weight: 600;
-    font-size: 1.2rem;
-  }
-  
-  .footer-location li{
-    list-style-type: none;
-    color: #9F9F9F;
-    font-weight: 300;
-  }
-  
-  footer hr{
-    border: 1px solid #E5E5E5;
-    margin: 1rem 0;
-  }
-  
-  
-  @media (max-width: 768px) {
-    .store-footer{
-      font-size: 0.8em;
-    }
-    .footer-title {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-  
-  
-  }
+.footer-line {
+  border-top: 1px solid #ccc;
+  margin: 40px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-column {
+  flex: 1;
+}
+
+.footer-middle {
+  flex: 2;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+}
+
+/* Estilos adicionales según necesidades específicas */
