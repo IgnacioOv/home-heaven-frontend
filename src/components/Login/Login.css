@@ -7,10 +7,11 @@
 
 .login-container{
   display: flex;
-  height: 100vh;
-  width: 100vw;
   align-items: center;
   justify-content: center;
+  margin: 0%;
+  padding: 0%;
+  height: 98vh;
 }
 
 .zen-kaku-gothic-antique-regular {
@@ -38,7 +39,9 @@
 
 
 .login-card h3{
-  font-size: 2.5em;
+  font-size: 1.8em;
+  justify-content: center;
+  display: flex;
   margin-top:10%;
   margin-bottom:5%;
 }
@@ -81,14 +84,15 @@
   font-size: 0.75em;
 }
 
-
-
-
+.logoH{
+  margin-left: -35%;
+  width: 80%;
+}
 .formulario input {
   font-family:Zen Kaku Gothic Antique;
   font-size: 1.1em;
   width: 100%;
-  padding: 4.2%;
+  padding: 3.2%;
   padding-left: 0%;
   box-sizing: border-box;
 
@@ -114,16 +118,17 @@
 }
 
 
-
-
-
 .login-image {
-  flex:1.2;
-  
+  flex:1;
+  height: 100%;
 }
 
 .imagen{
   width:100%;
-  height:100%;
+  height:101%;
   object-fit: cover;
+}
+
+p{
+  font-size: 0.8em;
 }

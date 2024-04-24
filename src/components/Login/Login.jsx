@@ -1,6 +1,5 @@
-import React from 'react';
 import './Login.css';
-
+import logoImage from '../../images/homeHLogo.png';
 
 const Login = () => {
     return (
@@ -9,20 +8,22 @@ const Login = () => {
             <div className='login-container'>
                 
                 <div className='login-card'>
-                    <h1 className="cambiar">Home heaven</h1>
-                    <h3>Inicia sesión</h3>
+                <div className="logo">
+                <img src={logoImage} alt="Logo" className='logoH' />
+                <h3>Inicia sesión</h3>
+            </div>                    
 
 
                     
-            <form class="formulario">
-                <div class= "wrap-input">
-                    <span class="form-text">EMAIL</span>
+            <form className="formulario">
+                <div className= "wrap-input">
+                    <span className="form-text">EMAIL</span>
                     <input type="text" placeholder='Ingrese su email'/>
                 </div>
 
     
-                <div class= "wrap-input">
-                    <span class="form-text">CONTRASEÑA</span>
+                <div className= "wrap-input">
+                    <span className="form-text">CONTRASEÑA</span>
                     <input type="password" placeholder='Ingrese su contraseña'/>
                 </div>
                 <button type="submit">Ir</button>
