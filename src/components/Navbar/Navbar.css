@@ -68,16 +68,33 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-top: 0.5%;
+        width: 100%;
+        background-color: rgb(253, 253, 253);
+        position: fixed;
+        z-index:1000;
     }
     .filterPhone{
         height: 1em;
         margin-left: 2%;
+
+    }
+
+    .searchPhone{
+        height: 1.2em;
+
+
     }
     .carritoPhone{
         height:1.3em;
-        margin-right: 2%;
+        margin-right: 4%;
     }
-    .logo{
-        margin-left: 8%;
+
+    .logoHeaven{
+        height: 80%;
+        width: 50%;
+        margin-top: 2%;
+        cursor: pointer;
     }
+    
 }

@@ -7,7 +7,7 @@ import cartLogo from '../../images/cart.png';
 import filterPhone from '../../images/VectorfilterPhone2.png';
 import cartPhone from '../../images/VectorcarritoPhone.png';
 
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -31,6 +31,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-mobile">
             <img src={filterPhone} alt="Filter" className='filterPhone' />
+            <img src={searchLogo} alt="Search" className='searchPhone' />
             <div className="logo">
                 <img src={logoImage} alt="Logo" className='logoHeaven' />
             </div>

@@ -21,3 +21,10 @@
 .category:hover{
     color: #555B6E;
 }
+
+@media (max-width: 768px) {
+
+    .categories-bar{
+        display:none;
+    }
+}
