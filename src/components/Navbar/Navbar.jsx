@@ -6,6 +6,10 @@ import profileLogo from '../../images/profile.png';
 import cartLogo from '../../images/cart.png';
 import filterPhone from '../../images/VectorfilterPhone2.png';
 import cartPhone from '../../images/VectorcarritoPhone.png';
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
     return (
         <nav className="navbar">
@@ -19,7 +23,9 @@ const Navbar = () => {
             </div>
             <div className="logos">
                 <img src={filterLogo} alt="Filter" className='filterLogo' />
-                <img src={profileLogo} alt="Profile" className='profileLogo' />
+                <Link to="/login">
+                    <img src={profileLogo} alt="Profile" className='profileLogo' />
+                </Link>
                 <img src={cartLogo} alt="Cart" className='cartLogo' />
             </div>
         </div>
