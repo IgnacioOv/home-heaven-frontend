@@ -21,10 +21,6 @@
     font-size: medium;
     font-weight: 700;
   }
-  
-  .card-description {
-    margin: 0.5rem 5%;
-  }
   .card-price{
 
     font-weight: 500;
@@ -35,6 +31,17 @@
   .card-container:hover {
     transform: translate3D(0,-1px,0) scale(1.03); 
     transition: 0.25s;
+    cursor:pointer;
+  }
+
+  .ver-mas{
+    color:inherit;
+  }
+
+  .card-container .ver-mas:hover{
+
+    text-decoration: underline;
+    font-weight: 600;
   }
 
 @media (max-width: 768px) { 
