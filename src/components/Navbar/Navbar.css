@@ -25,28 +25,43 @@
     
 }
 .searchInput{
-    width: 200%; /* Reducir el ancho del input */
+    width: 210%; /* Reducir el ancho del input */
     padding: 8px; /* Reducir el tamaño del padding */
     border: 1px solid #ccc;
     border-radius: 0.5em; /* Reducir el radio de borde */
 }
 .searchLogo {
     position: absolute;
-    top: 25%;
-    left: 190%; /* adjust as needed */
+    top: 22%;
+    left: 200%; /* adjust as needed */
     cursor: pointer;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 990; /* Below the shopping cart but above the navbar */
+}
+.navbar-desktop, .navbar-mobile {
+    z-index: 500; /* Any value less than the overlay but ensures it's above the page content */
+}
+
+
+
 .logos {
     display: flex;
-    width: 8%;
+    width: 5%;
     justify-content: space-between;
     align-items: center;
-    margin-right: 1%;
+    margin-right: 3%;
 }
 
 .profileLogo{
-    height: 1.6em;
+    height: 1.7em;
     cursor: pointer;
     margin-top: 0.4em;
 }
@@ -57,7 +72,8 @@
 }
 
 .cartLogo{
-    height: 1.6em;
+    margin-top: -1%;
+    height: 1.7em;
     cursor: pointer;
 }
 
