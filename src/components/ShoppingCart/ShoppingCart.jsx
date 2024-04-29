@@ -5,7 +5,7 @@ const ShoppingCart = ({ closeCart }) => {
     return (
         <div className="shopping-cart">
             <div className="cart-header">
-                <h1 className='cartTitle'>Shopping Cart</h1>
+                <h1 className='cartTitle'>Mi Compra</h1>
                 <button onClick={closeCart}>×</button>
             </div>
             <div className="cart-body">

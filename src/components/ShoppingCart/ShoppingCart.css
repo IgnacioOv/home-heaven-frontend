@@ -1,8 +1,8 @@
 .shopping-cart {
-    position: absolute;
-    top: 50px; 
-    right: 10px; 
-    width: auto; 
+    position: FIXED;
+    right: 0px; 
+    width:50vh; 
+    height: 100vh;
     max-height: auto;
     background-color: white;
     border: 1px solid #ccc;

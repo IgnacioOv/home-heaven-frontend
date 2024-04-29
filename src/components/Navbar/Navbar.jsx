@@ -42,7 +42,12 @@ const Navbar = () => {
                 </div>
                 <img src={cartPhone} alt="Carrito" className='carritoPhone' onClick={toggleCart} />
             </div>
-            {isCartOpen && <ShoppingCart closeCart={() => setIsCartOpen(false)} />}
+            {isCartOpen && (
+                <>
+                    <div className="overlay" onClick={() => setIsCartOpen(false)}></div>
+                    <ShoppingCart closeCart={() => setIsCartOpen(false)} />
+                </>
+            )}
         </nav>
     );
 };
