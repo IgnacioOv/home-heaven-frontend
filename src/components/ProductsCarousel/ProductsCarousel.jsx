@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../Card/Card'; // Assuming Card component handles product display
 import './ProductsCarousel.css';
+import { Link } from 'react-router-dom'
 
 const ProductsCarousel = () => {
   const [products, setProducts] = useState([]); // State to store fetched products
@@ -35,7 +36,9 @@ const ProductsCarousel = () => {
         <p>Error fetching products: {error}</p>
       ) : (
         products.map((product) => (
-          <Card product={product} /> // Assuming Card handles product data
+          <Link to={`/product/${product.id}`}>
+          <Card product={product}/> 
+          </Link>// Assuming Card handles product data
         ))
       )}
     </div>

@@ -48,6 +48,7 @@
 .profileLogo{
     height: 1.6em;
     cursor: pointer;
+    margin-top: 0.4em;
 }
 
 .filterLogo{
