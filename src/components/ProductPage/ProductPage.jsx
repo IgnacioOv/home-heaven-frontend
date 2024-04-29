@@ -10,23 +10,23 @@ const ProductPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true); // Set loading state to true
+      setIsLoading(true);
       try {
         const response = await fetch(`http://localhost:3000/products/${id}`);
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);
         }
         const data = await response.json();
-        setSelectedProduct(data); // Update selected product state
+        setSelectedProduct(data); 
       } catch (error) {
-        setError(error.message); // Set error state
+        setError(error.message);
       } finally {
-        setIsLoading(false); // Set loading state to false regardless of success or error
+        setIsLoading(false); 
       }
     };
 
-    fetchData(); // Fetch data on component mount
-  }, [id]); // Dependency array: refetch if id changes
+    fetchData(); 
+  }, [id]); 
 
   return (
     <div className="product-page">
@@ -35,22 +35,18 @@ const ProductPage = () => {
       ) : error ? (
         <p>Error fetching product: {error}</p>
       ) : selectedProduct ? (
-        <>
-          <img
-            className="product-image"
-            src={selectedProduct.image}
-            alt={selectedProduct.name}
-          />
+        <div className='product-info'>
+          <img className="product-image" src={selectedProduct.image} alt={selectedProduct.name}/>
           <h2 className="product-name">{selectedProduct.product}</h2>
           <p className="product-price">${selectedProduct.price}</p>
           <button className="add-to-cart-button">Añadir al carrito</button>
-          <div className="description-container">
-            <p className="product-description">{selectedProduct.description}</p>
-          </div>
-        </>
+        </div>
       ) : (
         <p>Product not found.</p>
       )}
+                <div className="description-container">
+            <p className="product-description">{selectedProduct.description}</p>
+          </div>
     </div>
   );
 };
