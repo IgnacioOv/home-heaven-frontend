@@ -65,7 +65,7 @@ const Filter = () => {
           ))}
         </select>
         <div className="products-container">
-          {productsData.map(product => (
+          {currentProducts.map(product => (
             <Card key={product.id} product={product} />
           ))}
         </div>
