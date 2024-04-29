@@ -7,6 +7,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register'; 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductPage from './components/ProductPage/ProductPage';
+import Filter from './components/Filter/Filter';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="product/:id" element={<><Navbar/> <ProductPage/><Footer /></>}/>
+        <Route path="products" element={<><Navbar/><Filter/><Footer /></>}/>
       </Routes>
     </BrowserRouter>
   );
