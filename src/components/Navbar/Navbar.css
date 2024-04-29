@@ -1,0 +1,100 @@
+.navbar-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.5%;
+    width: 100%;
+    background-color: rgb(253, 253, 253);
+    position: fixed;
+    z-index:1000;
+}
+.navbar-mobile {
+    display: none;
+}
+.logoHeaven{
+    height: 90%;
+    width: 65%;
+    margin-left: 20%;
+    cursor: pointer;
+}
+
+.searchbar {
+    position: relative;
+    align-items: center;
+    left: 15%;
+    
+}
+.searchInput{
+    width: 200%; /* Reducir el ancho del input */
+    padding: 8px; /* Reducir el tamaño del padding */
+    border: 1px solid #ccc;
+    border-radius: 0.5em; /* Reducir el radio de borde */
+}
+.searchLogo {
+    position: absolute;
+    top: 25%;
+    left: 190%; /* adjust as needed */
+    cursor: pointer;
+}
+
+.logos {
+    display: flex;
+    width: 8%;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 1%;
+}
+
+.profileLogo{
+    height: 1.6em;
+    cursor: pointer;
+}
+
+.filterLogo{
+    height: 1.6em;
+    cursor: pointer;
+}
+
+.cartLogo{
+    height: 1.6em;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar-desktop {
+        display: none;
+    }
+    .navbar-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0.5%;
+        width: 100%;
+        background-color: rgb(253, 253, 253);
+        position: fixed;
+        z-index:1000;
+    }
+    .filterPhone{
+        height: 1em;
+        margin-left: 2%;
+
+    }
+
+    .searchPhone{
+        height: 1.2em;
+
+
+    }
+    .carritoPhone{
+        height:1.3em;
+        margin-right: 4%;
+    }
+
+    .logoHeaven{
+        height: 80%;
+        width: 50%;
+        margin-top: 2%;
+        cursor: pointer;
+    }
+    
+}

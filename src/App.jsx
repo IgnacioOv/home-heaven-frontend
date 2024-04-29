@@ -1,29 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Footer from './components/Footer'
-import Card from './components/Card';
+import Footer from './components/Footer/Footer'
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import ReactDOM from "react-dom/client";
+import Login from './components/Login/Login'; 
+import Register from './components/Register/Register'; 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductPage from './components/ProductPage/ProductPage';
 
 function App() {
-
   return (
-    <>
-
-     <Footer />
-     <Card
-      imgSrc="https://foter.com/photos/400/alfonsina-free-standing-swirl-toilet-paper-holder.jpg"
-      imgAlt="Card Image 1"
-      title="Product"
-      description="Description"
-      price="$299"
-      />  
-      
-    </>
-
-  
-    
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<> <Navbar /> <Home /> <Footer /> </>} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="product/:id" element={<><Navbar/> <ProductPage/><Footer /></>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+export default App;
