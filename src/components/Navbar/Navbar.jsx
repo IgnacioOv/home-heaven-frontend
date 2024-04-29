@@ -28,7 +28,6 @@ const Navbar = () => {
                     <img src={searchLogo} alt="Search" className='searchLogo' />
                 </div>
                 <div className="logos">
-                    <img src={filterLogo} alt="Filter" className='filterLogo' />
                     <Link to="/login">
                         <img src={profileLogo} alt="Profile" className='profileLogo' />
                     </Link>

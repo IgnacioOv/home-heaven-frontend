@@ -25,28 +25,28 @@
     
 }
 .searchInput{
-    width: 200%; /* Reducir el ancho del input */
+    width: 210%; /* Reducir el ancho del input */
     padding: 8px; /* Reducir el tamaño del padding */
     border: 1px solid #ccc;
     border-radius: 0.5em; /* Reducir el radio de borde */
 }
 .searchLogo {
     position: absolute;
-    top: 25%;
-    left: 190%; /* adjust as needed */
+    top: 22%;
+    left: 200%; /* adjust as needed */
     cursor: pointer;
 }
 
 .logos {
     display: flex;
-    width: 8%;
+    width: 5%;
     justify-content: space-between;
     align-items: center;
-    margin-right: 1%;
+    margin-right: 3%;
 }
 
 .profileLogo{
-    height: 1.6em;
+    height: 1.7em;
     cursor: pointer;
     margin-top: 0.4em;
 }
@@ -57,7 +57,8 @@
 }
 
 .cartLogo{
-    height: 1.6em;
+    margin-top: -1%;
+    height: 1.7em;
     cursor: pointer;
 }
 
