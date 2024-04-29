@@ -1,0 +1,32 @@
+#category-select {
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #f0f0f0;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    grid-gap: 20px; /* Space between the grid items */
+    padding: 20px;
+}
