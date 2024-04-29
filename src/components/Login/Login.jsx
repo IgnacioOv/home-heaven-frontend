@@ -1,6 +1,4 @@
-import React from 'react';
 import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
-
 import './Login.css';
 import logoImage from '../../images/homeHLogo.png';
 

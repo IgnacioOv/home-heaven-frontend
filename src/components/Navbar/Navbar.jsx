@@ -7,16 +7,17 @@ import cartLogo from '../../images/cart.png';
 import filterPhone from '../../images/VectorfilterPhone2.png';
 import cartPhone from '../../images/VectorcarritoPhone.png';
 
-
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <nav className="navbar">
         <div className="navbar-desktop">
-            <div className="logo">
-                <img src={logoImage} alt="Logo" className='logoHeaven' />
-            </div>
+            <Link to="/">
+                <div className="logo">
+                    <img src={logoImage} alt="Logo" className='logoHeaven' />
+                </div>
+            </Link>
             <div className="searchbar">
                 <input type="text" placeholder="Qué estás buscando?" className='searchInput'/>
                 <img src={searchLogo} alt="Search" className='searchLogo' />
@@ -39,6 +40,5 @@ const Navbar = () => {
         </div>
         </nav>
     );
-};
-
+}
 export default Navbar;
