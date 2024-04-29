@@ -1,32 +1,31 @@
 import { useEffect, useState } from 'react';
-import Card from '../Card/Card'; // Assuming Card component handles product display
+import Card from '../Card/Card';
 import './ProductsCarousel.css';
-import { Link } from 'react-router-dom'
 
 const ProductsCarousel = () => {
-  const [products, setProducts] = useState([]); // State to store fetched products
-  const [isLoading, setIsLoading] = useState(false); // State for loading indicator
-  const [error, setError] = useState(null); // State to store API errors
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true); // Set loading state to true
+      setIsLoading(true);
       try {
         const response = await fetch("http://localhost:3000/products");
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);
         }
         const data = await response.json();
-        setProducts(data); // Update products state with fetched data
+        setProducts(data);
       } catch (error) {
-        setError(error.message); // Set error state
+        setError(error.message);
       } finally {
-        setIsLoading(false); // Set loading state to false regardless of success or error
+        setIsLoading(false);
       }
     };
 
-    fetchData(); // Fetch data on component mount
-  }, []); // Empty dependency array: fetch data only once
+    fetchData();
+  }, []);
 
   return (
     <div className="carousel">
@@ -36,9 +35,7 @@ const ProductsCarousel = () => {
         <p>Error fetching products: {error}</p>
       ) : (
         products.map((product) => (
-          <Link to={`/product/${product.id}`}>
-          <Card product={product}/> 
-          </Link>// Assuming Card handles product data
+          <Card key={product.id} product={product} />
         ))
       )}
     </div>

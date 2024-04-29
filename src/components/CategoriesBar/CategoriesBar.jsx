@@ -5,6 +5,7 @@ const CategoriesBar = () => {
     return (
         <>
         <ul className='categories-bar'>
+            <li className='category'>TODOS</li>
             <li className='category'>BAÑO</li>
             <li className='category'>COCINA</li>
             <li className='category'>DECORACIÓN</li>
