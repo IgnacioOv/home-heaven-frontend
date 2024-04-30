@@ -10,9 +10,7 @@ export const Card = ({ product }) => {
   };
 
   const handleAddToCart = (e) => {
-    e.stopPropagation(); // Prevent the navigation when the button is clicked
     console.log("Agregar to cart:", product.id);
-    // You would typically call a context or redux action to add the product to cart
   };
 
   return (
