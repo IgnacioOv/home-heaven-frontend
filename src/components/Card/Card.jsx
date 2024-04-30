@@ -10,6 +10,7 @@ export const Card = ({ product }) => {
   };
 
   const handleAddToCart = (e) => {
+    e.stopPropagation(); // Stop event propagation
     console.log("Agregar to cart:", product.id);
   };
 

@@ -39,3 +39,9 @@
     max-width: 600px; /* Limit width of description */
   }
   
+  @media (min-width: 1500px) {
+    .product-page{
+      padding-top: 4%;
+    }
+  
+  }

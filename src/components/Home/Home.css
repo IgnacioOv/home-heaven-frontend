@@ -70,3 +70,11 @@
 .home-container{
   padding-top:5%;
 }
+
+@media (min-width: 1500px) {
+  .home-container{
+    padding-top: 4%;
+  }
+
+
+}
