@@ -1,26 +1,35 @@
-/* CategoryPage.css */
+/* CategoryPage.css - Fine-tuning grid layout and card spacing */
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr); /* Adjusts for four columns */
+    column-gap: 2px; /* Minimal horizontal gap between grid items */
+    row-gap: 2px; /* Adequate vertical gap for separation */
+    padding: 0; /* Ensures no extra padding in grid container */
+    margin: 0 auto; /* Centers grid in the page if needed */
+    width: 50%; /* Ensures the grid uses full available width */
   }
   
-  .pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    padding: 0;
+  .card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 4px; /* Smooth rounded corners for aesthetics */
+    overflow: hidden; /* Ensures content stays within the borders */
+    margin: 5px; /* Reduces margin to minimize gaps */
+    padding: 10px; /* Internal padding for content separation */
+    background-color: #f9f9f9; /* Neutral background for visibility */
+    width: 100%; /* Ensures cards expand to fill grid columns */
   }
   
-  .pagination ul {
-    display: flex;
-    padding-left: 0;
-    margin: 0;
-    list-style-type: none;
+  .pagination ul, .categories-bar {
+    display: flex; /* Ensures flexbox layout */
+    list-style-type: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margins */
+    justify-content: center; /* Centers items horizontally if needed */
+    align-items: center; /* Aligns items vertically to the center */
   }
   
-  .pagination li {
-    margin: 0 5px;
+  .pagination li, .categories-bar li {
+    margin-right: 10px; /* Adds some space between the items */
   }
   
   .pagination button {
@@ -28,10 +37,16 @@
     background-color: #fff;
     border: 1px solid black;
     cursor: pointer;
-    transition: background-color 0.3s;
   }
   
   .pagination button.active {
     background-color: #ccc;
+  }
+  
+  @media (max-width: 768px) {
+    .category-grid {
+      grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+      column-gap: 5px; /* Slightly larger gap for mobile readability */
+    }
   }
   

@@ -1,26 +1,31 @@
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
+import Footer from '../Footer/Footer';
+import Navbar from '../Navbar/Navbar';
+import HeaderCategory from '../HeaderCategory/HeaderCategory';  // Ensure this import is correct
 import './CategoryPage.css';
 
 function CategoryPage() {
   const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(16);  
+  const itemsPerPage = 16;
 
   useEffect(() => {
     fetch('http://localhost:3000/products')
       .then(res => res.json())
       .then(data => {
-        const filteredProducts = data.filter(product => product.category === categoryName);
-        setProducts(filteredProducts);
+        if (categoryName.toUpperCase() === 'TODOS') {
+          setProducts(data);
+        } else {
+          setProducts(data.filter(product => product.category === categoryName));
+        }
       });
   }, [categoryName]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = products.slice(indexOfLastItem - itemsPerPage, indexOfLastItem);
 
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(products.length / itemsPerPage); i++) {
@@ -31,7 +36,8 @@ function CategoryPage() {
 
   return (
     <div>
-      <h1>Category: {categoryName}</h1>
+        <Navbar />
+      <HeaderCategory categoryName={categoryName} />
       <div className="category-grid">
         {currentItems.map(product => (
           <Card key={product.id} product={product} />
@@ -48,6 +54,7 @@ function CategoryPage() {
           ))}
         </ul>
       </nav>
+      <Footer />
     </div>
   );
 }
