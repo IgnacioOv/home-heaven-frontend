@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './ProductPage.css';
 import { useParams } from 'react-router-dom';
+import CategoriesBar from '../CategoriesBar/CategoriesBar';
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -30,29 +31,29 @@ const ProductPage = () => {
 
   return (
     <div className="product-page">
+      <CategoriesBar/>
       {isLoading ? (
         <p>Loading product...</p>
       ) : error ? (
         <p>Error fetching product: {error}</p>
       ) : selectedProduct ? (
-        <>
+        <div className="product-content">
           <img
             className="product-image"
             src={selectedProduct.image}
             alt={selectedProduct.name}
           />
-          <h2 className="product-name">{selectedProduct.product}</h2>
-          <p className="product-price">${selectedProduct.price}</p>
-          <button className="add-to-cart-button">Añadir al carrito</button>
-          <div className="description-container">
+          <div>
+            <h2 className="product-name">{selectedProduct.product}</h2>
             <p className="product-description">{selectedProduct.description}</p>
+            <p className="product-price">${selectedProduct.price}</p>
+            <button className="add-to-cart-button">Añadir al carrito</button>
           </div>
-        </>
+        </div>
       ) : (
         <p>Product not found.</p>
       )}
     </div>
   );
-};
-
+}
 export default ProductPage;

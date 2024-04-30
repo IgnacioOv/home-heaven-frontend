@@ -9,7 +9,6 @@
   width: 100%;
 }
 
-
 .image-container img{
   opacity: 40%;
   width: 100%;
@@ -69,5 +68,13 @@
 }
 
 .home-container{
-  padding-top:5%
+  padding-top:5%;
+}
+
+@media (min-width: 1500px) {
+  .home-container{
+    padding-top: 4%;
+  }
+
+
 }
