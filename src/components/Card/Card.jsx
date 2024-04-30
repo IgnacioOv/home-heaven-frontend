@@ -24,5 +24,5 @@ export const Card = ({ product }) => {
     </div>
   );
 };
-
+  
 export default Card;

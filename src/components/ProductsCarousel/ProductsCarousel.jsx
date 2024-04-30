@@ -41,5 +41,5 @@ const ProductsCarousel = () => {
     </div>
   );
 };
-
+  
 export default ProductsCarousel;
