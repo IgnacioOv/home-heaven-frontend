@@ -1,52 +1,66 @@
-/* CategoryPage.css - Fine-tuning grid layout and card spacing */
+
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjusts for four columns */
-    column-gap: 2px; /* Minimal horizontal gap between grid items */
-    row-gap: 2px; /* Adequate vertical gap for separation */
-    padding: 0; /* Ensures no extra padding in grid container */
-    margin: 0 auto; /* Centers grid in the page if needed */
-    width: 50%; /* Ensures the grid uses full available width */
+    grid-template-columns: repeat(4, 1fr); 
+    column-gap: 2px; 
+    row-gap: 2px; 
+    margin: 0 auto; 
+    width: 50%; 
   }
   
   .card {
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    border-radius: 4px; /* Smooth rounded corners for aesthetics */
-    overflow: hidden; /* Ensures content stays within the borders */
-    margin: 5px; /* Reduces margin to minimize gaps */
-    padding: 10px; /* Internal padding for content separation */
-    background-color: #f9f9f9; /* Neutral background for visibility */
-    width: 100%; /* Ensures cards expand to fill grid columns */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    border-radius: 4px; 
+    overflow: hidden;
+    margin: 5px; 
+    padding: 10px; 
+    background-color: #f9f9f9; 
+    width: 100%; 
   }
   
   .pagination ul, .categories-bar {
-    display: flex; /* Ensures flexbox layout */
-    list-style-type: none; /* Removes bullet points */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margins */
-    justify-content: center; /* Centers items horizontally if needed */
-    align-items: center; /* Aligns items vertically to the center */
+    display: flex; 
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 30px;
   }
   
   .pagination li, .categories-bar li {
-    margin-right: 10px; /* Adds some space between the items */
+    margin-right: 10px; 
   }
   
-  .pagination button {
-    padding: 8px;
-    background-color: #fff;
-    border: 1px solid black;
+.pagination button {
+    background-color: #BEE3DB;
+    color: black; 
+    border: none; 
+    padding: 10px 20px; 
+    width: 60px; 
+    height: 40px; 
+    margin: 5px; 
     cursor: pointer;
-  }
-  
-  .pagination button.active {
-    background-color: #ccc;
-  }
+    font-size: 1em;
+    outline: none;
+    display: flex;
+    border-radius: 10px;
+
+}
+
+.pagination button:hover {
+    background-color: #555B6E; 
+}
+
+.pagination button:disabled {
+    background-color: #555B6E; 
+    cursor: default; 
+}
   
   @media (max-width: 768px) {
     .category-grid {
-      grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
-      column-gap: 5px; /* Slightly larger gap for mobile readability */
+      grid-template-columns: repeat(2, 1fr); 
+      column-gap: 5px;
     }
   }
   
