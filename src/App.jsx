@@ -8,6 +8,7 @@ import ProductPage from './components/ProductPage/ProductPage';
 import Footer from './components/Footer/Footer';
 import { CartProvider } from './context/CartProvider';
 import CategoryPage from './components/CategoryPage/CategoryPage';
+import SearchResult from './components/SearchResult/SearchResult';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="product/:id" element={<><Navbar/><ProductPage/><Footer /></>}/>
           <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />
+          <Route path='search' element={<><Navbar /><SearchResult/> <Footer /></>} />
         </Routes>
         </CartProvider> 
       </BrowserRouter>
