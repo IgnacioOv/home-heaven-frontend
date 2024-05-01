@@ -1,6 +1,4 @@
 {
-
-
 "products":[
         {
             "id":1,
@@ -32,6 +30,13 @@
             "seller": "Muebles y Decoración del Hogar S.A.",
             "recommended": true
         }
-]
+],
+
+    "carrito":[
+        {
+            "id":1,
+            "cantidad":3
+        }
+    ]
 
 }

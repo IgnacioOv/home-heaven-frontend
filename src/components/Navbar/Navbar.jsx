@@ -2,15 +2,29 @@ import { useState } from 'react';
 import './Navbar.css';
 import logoImage from '../../images/homeHLogo.png';
 import searchLogo from '../../images/searchLogo.png';
-import filterLogo from '../../images/filter.png';
 import profileLogo from '../../images/profile.png';
 import cartLogo from '../../images/cart.png';
 import filterPhone from '../../images/VectorfilterPhone2.png';
 import cartPhone from '../../images/VectorcarritoPhone.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';  // Ensure this path is correct
 
+
 const Navbar = () => {
+    const [input, setinput] = useState("");
+    const navigate = useNavigate();
+    
+
+    const handleChange = (value) => {
+        setinput(value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const encodedQuery = encodeURIComponent(input);
+        navigate(`/search?query=${encodedQuery}`);
+    };  
+
     const [isCartOpen, setIsCartOpen] = useState(false);
 
     const toggleCart = () => setIsCartOpen(!isCartOpen);
@@ -23,10 +37,10 @@ const Navbar = () => {
                     <img src={logoImage} alt="Logo" className='logoHeaven' />
                 </div>
                 </Link>
-                <div className="searchbar">
-                    <input type="text" placeholder="Qué estás buscando?" className='searchInput'/>
-                    <img src={searchLogo} alt="Search" className='searchLogo' />
-                </div>
+                <form onSubmit={handleSubmit} className="searchbar">
+                    <input type="text" placeholder="Qué estás buscando?" className='searchInput' value={input} onChange={(e) => handleChange(e.target.value)}/>
+                    <input type="image" src={searchLogo} alt="Submit" className='searchLogo' />    
+                </form>
                 <div className="logos">
                     <Link to="/login">
                         <img src={profileLogo} alt="Profile" className='profileLogo' />
