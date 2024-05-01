@@ -17,7 +17,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="product/:id" element={<><Navbar/><ProductPage/><Footer /></>}/>
-        <Route path="/category/:categoryName" element={<CategoryPage />} />
+        <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />
       </Routes>
     </BrowserRouter>
   );
