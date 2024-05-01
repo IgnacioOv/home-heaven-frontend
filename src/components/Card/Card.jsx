@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Card.css';
+import {  CartContext } from '../../context/CartProvider';
 
 export const Card = ({ product }) => {
   const navigate = useNavigate();
+  const { cartItems, addToCart } = useContext(CartContext)
+  
+  //const { cartItems, setCartItems } = React.useContext(CartContext);
+  console.log(cartItems);
 
   const handleNavigate = () => {
     navigate(`/product/${product.id}`);
@@ -11,6 +16,7 @@ export const Card = ({ product }) => {
 
   const handleAddToCart = (e) => {
     e.stopPropagation(); // Stop event propagation
+    addToCart(product);
     console.log("Agregar to cart:", product.id);
   };
 

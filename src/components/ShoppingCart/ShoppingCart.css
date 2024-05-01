@@ -1,7 +1,10 @@
 .shopping-cart {
-    position: FIXED;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    position: fixed;
     right: 0px; 
-    width:50vh; 
+    width: 50vh; 
     height: 100vh;
     max-height: auto;
     background-color: white;
@@ -18,6 +21,19 @@
     border-bottom: 1px solid #ccc;
 }
 
+
+.itemprice{
+    font-size: 0.9em;
+    margin-top: 2.5%;
+    color: #555B6E;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.itemtitle{
+    font-size: 0.9em;
+    margin-top: 0%;
+
+}
 .cart-header .cartTitle {
     margin: 0; 
     flex-grow: 1; 
@@ -33,5 +49,99 @@
 }
 
 .cart-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
     padding: 20px;
+    overflow-y: auto; 
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+    flex-grow: 1; 
+    overflow-y: auto; 
+}
+
+.itemimage {
+flex: 1;
+width: 25%;
+max-width: 200px; 
+border-radius: 7px;
+}
+
+.item-details {
+flex: 2;
+display: flex;
+flex-direction: column;
+align-items: left;
+justify-content: center;
+margin-left: 3%;
+}
+
+.delete-button {
+    flex: 0.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none; 
+    background: transparent; 
+}
+
+.coupon-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    margin-top: 20px;
+}
+
+.coupon-input {
+    flex-grow: 1;
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 0.7em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.apply-coupon-button, .finalize-purchase-button {
+    padding: 10px 20px;
+    background-color: #89B0AE; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 0.7em;
+    width: 100%; 
+}
+.coupon-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+}
+.discount-display, .subtotal-display,.total-display {
+    padding: 10px 20px;
+    font-size: 0.8em;
+    color: #333;
+    background: #fffefe;
+    border-bottom: 1px solid #ccc;
+    text-align: right;
+}
+
+.total-display {
+    background-color: #89b0ae37;  
+}
+.finalize-purchase-button {
+    width: 100%; 
+    margin-top: 10px; 
+    background-color: #555B6E;
+    border-radius: 8px;
+    color:white;
+}
+.cart-footer {
+    margin-top: auto;
+    padding: 0px;
+    width: 100%; 
 }
