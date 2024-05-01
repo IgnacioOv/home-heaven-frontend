@@ -1,30 +1,102 @@
-import React from 'react';
-import './ShoppingCart.css'; // Ensure you import the CSS
+import React, { useState } from 'react';
+import './ShoppingCart.css';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartProvider';
+import Counter from '../Counter/Counter';
+import trashIcon from '../../images/trash.png';
 
 const ShoppingCart = ({ closeCart }) => {
-    const { cartItems } = useContext(CartContext)
+    const { cartItems, incrementQuantity, decrementQuantity, removeItem } = useContext(CartContext);
+    const [coupon, setCoupon] = useState('');
+    const [discount, setDiscount] = useState(0);
+
+    const handleCouponChange = (e) => {
+        setCoupon(e.target.value);
+    };
+
+    const applyCoupon = () => {
+        if (coupon.toLowerCase() === "descuento50%") {
+            setDiscount(0.5); // Apply a 50% discount
+        } else {
+            setDiscount(0); // No discount
+        }
+    };
+
+    const finalizePurchase = () => {
+        console.log("Finalizing purchase");
+    };
+
+    // Calculate the subtotal of all cart items
+    const subtotal = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+    const discountAmount = subtotal * discount;
+    const total = subtotal - discountAmount;
+
+    if (cartItems.length === 0) {
+        return (
+            <div className="shopping-cart">
+                <div className="cart-header">
+                    <h1 className='cartTitle'>Mi Compra</h1>
+                    <button onClick={closeCart} className="close-button">×</button>
+                </div>
+                <div className="cart-body">
+                    <p>No hay elementos en tu carrito.</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="shopping-cart">
             <div className="cart-header">
                 <h1 className='cartTitle'>Mi Compra</h1>
-                <button onClick={closeCart}>×</button>
+                <button onClick={closeCart} className="close-button">×</button>
             </div>
             <div className="cart-body">
-                <p>Your cart items here.</p>
-                {
-                    cartItems.map((item) => (
+                <div className="cart-items">
+                    {cartItems.map((item) => (
                         <div key={item.id} className="cart-item">
-                            <img src={item.image} alt={item.description} />
-                            <div>
-                                <p>{item.product}</p>
-                                <p>{item.price}</p>
+                            <img src={item.image} alt={item.description} className='itemimage'/>
+                            <div className="item-details">
+                                <p className='itemtitle'>{item.product}</p>
+                                <div className="counter-and-price">
+                                    <p className='itemprice'>$ {item.price * item.quantity}</p>
+                                    <Counter 
+                                        quantity={item.quantity}
+                                        increment={() => incrementQuantity(item.id)}
+                                        decrement={() => decrementQuantity(item.id)}
+                                    />
+                                </div>
                             </div>
+                            <button onClick={() => removeItem(item.id)} className="delete-button">
+                                <img src={trashIcon} alt="Delete" />
+                            </button>
                         </div>
-                    )) /*ADD TOAST FOR WHEN ITS ADDED, SI YA ESTA AGREGADO UN PRODUCTO, INCREMENTAR*/
-                }
-                {/* Populate with dynamic cart items if needed */}
+                    ))}
+                </div>
+                <div className="cart-footer">
+                    <div className="subtotal-display">
+                        Subtotal: ${subtotal.toFixed(2)}
+                    </div>
+                    {discount > 0 && (
+                        <div className="discount-display">
+                            Descuento: -${discountAmount.toFixed(2)}
+                        </div>
+                    )}
+                    <div className="total-display">
+                        Total: ${total.toFixed(2)}
+                    </div>
+                    <div className="coupon-section">
+                        <input
+                            type="text"
+                            value={coupon}
+                            onChange={handleCouponChange}
+                            placeholder="Aplicar cupón"
+                            className="coupon-input"
+                        />
+                        <button onClick={applyCoupon} className="apply-coupon-button">Aplicar</button>
+                    </div>
+                    <button onClick={finalizePurchase} className="finalize-purchase-button">Finalizar Compra</button>
+                </div>
             </div>
         </div>
     );

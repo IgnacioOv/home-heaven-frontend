@@ -8,6 +8,8 @@ import ProductPage from './components/ProductPage/ProductPage';
 //import { CartProvider } from './components/CartProvider'; // import CartProvider
 import Footer from './components/Footer/Footer';
 import { CartProvider } from './context/CartProvider';
+import CategoryPage from './components/CategoryPage/CategoryPage';
+
 function App() {
   return (
       <BrowserRouter>
@@ -17,9 +19,11 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="product/:id" element={<><Navbar/><ProductPage/><Footer /></>}/>
+          <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />
         </Routes>
         </CartProvider> 
       </BrowserRouter>
+
   );
 }
 
