@@ -6,6 +6,7 @@
     position: fixed;
     z-index: 100;
     margin-top: 0.8%;
+    height: 70px;
     } 
 .categories-bar li{
     list-style-type: none;
