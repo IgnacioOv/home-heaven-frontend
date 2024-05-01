@@ -63,7 +63,6 @@ function CategoryPage() {
           )}
         </nav>
         <FooterCategory />
-        <Footer />
     </div>
   );
 }
