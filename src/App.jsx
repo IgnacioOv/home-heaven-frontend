@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductPage from './components/ProductPage/ProductPage';
 import CategoryPage from './components/CategoryPage/CategoryPage';
+import SearchResult from './components/SearchResult/SearchResult';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="product/:id" element={<><Navbar/><ProductPage/><Footer /></>}/>
         <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />
+        <Route path="search" element={<><Navbar /> <SearchResult/><Footer /> </>} />
       </Routes>
     </BrowserRouter>
   );
