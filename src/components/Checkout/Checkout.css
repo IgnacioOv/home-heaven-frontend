@@ -1,0 +1,37 @@
+.chk-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    width:100%;
+    padding: 2%;
+}
+
+.tabla {
+    width:55%;
+    border: 1px solid #ccc;
+    justify-content: space-between;
+    padding: 1%;
+    margin: 2%;
+}
+
+.columnas{
+    background-color: dimgray;
+    display: flex;
+    flex-direction: row;
+    color: ghostwhite;
+}
+
+
+.word {
+    flex:1;
+    margin: 0; /* Quita los márgenes predeterminados de los párrafos */
+    flex-basis: 25%; /* Establece el tamaño base de cada columna al 25% del contenedor */
+    text-align: center; /* Centra el texto dentro de las columnas */
+    padding: 5px; /* Añade un relleno a los párrafos */
+}
+
+
+
+.DctoBox{
+    width: 45%;
+}
