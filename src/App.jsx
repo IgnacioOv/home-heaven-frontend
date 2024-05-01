@@ -10,16 +10,21 @@ import Footer from './components/Footer/Footer';
 import { CartProvider } from './context/CartProvider';
 import CategoryPage from './components/CategoryPage/CategoryPage';
 
+import Checkout from './components/Checkout/Checkout';
+
 function App() {
   return (
       <BrowserRouter>
         <CartProvider> 
         <Routes>
-          <Route path="/" element={<> <Navbar /> <Home /> <Footer /> </>} />
+          
+        <Route path="/" element={<> <Navbar /> <Home /> <Footer /> </>} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="product/:id" element={<><Navbar/><ProductPage/><Footer /></>}/>
           <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />
+          <Route path="checkout" element={<><Navbar/><Checkout/><Footer /></>}></Route>
+
         </Routes>
         </CartProvider> 
       </BrowserRouter>
