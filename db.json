@@ -8,7 +8,6 @@
             "image":"https://dcdn.mitiendanube.com/stores/365/634/products/a4cf0ca8-a2c4-4b70-b3c6-379978c9f6f9-00b7d9747462fe298016335441521546-1024-1024.jpeg",
             "description": "Lámpara de mesa moderna con base de metal y pantalla de tela",
             "price": 50000,
-            "category": "DORMITORIO",
             "seller": "Decoraciones Modernas S.A.",
             "recommended": true
         },
@@ -18,7 +17,6 @@
             "image":"https://pintureriasagitario.com.ar/wp-content/uploads/2023/01/Almohadon-Tejido-60x40-mas-clara.jpeg",
             "description": "Almohadon decorativo de terciopelo con estampado floral",
             "price": 10000,
-            "category": "DORMITORIO",
             "seller": "Textiles Elegantes Ltda.",
             "recommended": false
         },
@@ -28,7 +26,6 @@
             "image":"https://i.blogs.es/c9598d/adhesivo/450_1000.jpeg",
             "description": "Espejo de pared rectangular con marco de madera",
             "price": 70000,
-            "category": "DECORACIÓN",
             "seller": "Muebles y Decoración del Hogar S.A.",
             "recommended": true
         }
