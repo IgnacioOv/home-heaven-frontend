@@ -7,6 +7,8 @@ import Card from '../Card/Card';
 const SearchResult = () => {
     const [products, setProducts] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     const location = useLocation();
   
     useEffect(() => {
@@ -18,24 +20,42 @@ const SearchResult = () => {
       }
     }, [location.search]);
     
-    
-    const fetchProducts = (searchQuery) => {
-        fetch('http://localhost:3000/products')
-            .then((response) => response.json())
-            .then(json =>{
-            const results = json.filter((product)=>{
-                return product.product && product.product && product.product.toLowerCase().includes(searchQuery.toLowerCase())
-            });
-            setProducts(results);
-        });
-    }
 
-    return (
-        <>
-            {products.map((product)=>(
-                <Card key={product.id} product={product}/>
-            ))
+
+    
+    const fetchProducts = async (searchQuery) => {
+            setIsLoading(true);
+        try {
+                    await fetch('http://localhost:3000/products')
+                    .then((response) => response.json())
+                    .then(json =>{
+                    const results = json.filter((product)=>{
+                            return product.product && product.product && product.product.toLowerCase().includes(searchQuery.toLowerCase())
+                    });
+            if (results.length === 0) {
+                throw new Error('No products found');
             }
+            setProducts(results);
+        }) 
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setIsLoading(false);
+        } 
+    };
+    return (
+        <>  
+        <div className='search-container'>
+        {isLoading ? (
+        <p>Loading products...</p>
+      ) : error ? (
+        <p>Error fetching products: {error}</p>
+      ) : (
+        products.map((product) => (
+          <Card key={product.id} product={product} />
+        ))
+      )}
+        </div>
         </>
     );
 };
