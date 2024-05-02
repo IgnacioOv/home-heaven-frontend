@@ -1,10 +1,11 @@
 import React from 'react';
 import './Checkout.css';
 import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
-
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartProvider';
 
 const Checkout = () => {
-
+    const { cartItems } = useContext(CartContext);
     const handleCompra = ()=> {
         alert("¡Gracias por tu compra!");
     };
@@ -39,7 +40,19 @@ const Checkout = () => {
                     </div>   
                 <p>Product1</p>
                 <p>Product2</p>
-                <p>Product2</p>            
+                <p>Product2</p> 
+
+                <div className="checkout-items">
+                    {cartItems.map((item) => (
+                    <div key={item.id} className="checkout-item">
+                        <img src={item.image} alt={item.description} className='smallimage'/>
+                        <p className='itemtitle'>{item.product}</p>
+                        <p className='itemprice'>$ {item.price}</p>
+                        <p className='itemquantity'>Quantity: {item.quantity}</p>
+                    </div> 
+                        ))}
+                </div>
+
             </div>
 
            <div className="DctoBox">

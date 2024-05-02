@@ -8,17 +8,18 @@
     flex-direction: row;
     justify-content:center;
     width:100%;
-    padding: 2%;
+    padding: 0%;
     align-items: center;
 }
 
 
 .tabla {
-    width:55%;
+    width:50%;
     border: 1px solid #ccc;
     justify-content: space-between;
     padding: 1%;
     margin: 2%;
+    margin-left: 0%;
 }
 
 
@@ -64,6 +65,7 @@
 
 .DctoBox.button{
     align-self: center;
+    margin-left: 2%;
 }
 
 
@@ -83,3 +85,27 @@
   .formulario-chk button:hover {
     background-color: rgb(71, 79, 83); /* Color de fondo del botón al pasar el ratón */
   }
+
+
+
+
+
+
+
+
+  .checkout-items{
+    display: block;
+
+  }
+
+  .checkout-item{
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .smallimage{
+    width: 20px;
+    height: 20px;
+  }
+
