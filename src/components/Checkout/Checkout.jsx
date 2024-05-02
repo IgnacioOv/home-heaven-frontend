@@ -5,6 +5,12 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/CartProvider';
 
 const Checkout = () => {
+    
+    const variableToChange = 32874;
+    const variableToChange1 = -5000;
+    const variableToChange2 = 2784;
+
+    
     const { cartItems } = useContext(CartContext);
     const handleCompra = ()=> {
         alert("¡Gracias por tu compra!");
@@ -54,12 +60,37 @@ const Checkout = () => {
                 </div>
 
             </div>
+            
+            
+            <div className="DctoBox">
+            <p className="texto-Resumen">Resumen de compra</p>
+            
+            <div className="summary-container">
+                <hr />
+                <div className="summary-item">
+                    <span className="inside-resumen">Subtotal:</span>
+                    <span className="summary-dots"></span>
+                    <span className="summary-value">12312</span>
+                </div>
+                <div className="summary-item">
+                    <span className="inside-resumen">Descuentos:</span>
+                    <span className="summary-dots"></span>
+                    <span className="summary-value">-1231</span>
+                </div>
 
-           <div className="DctoBox">
-            <p>Resumen de compra</p>
-               <p>Subtotal</p>
-               <p>Descuentos</p>
-               <p>Total</p>
+                <div className="summary-item">
+                    <span className="inside-resumen">Total:</span>
+                    <span className="summary-dots"></span>
+                    <span className="summary-value">423984</span>
+                </div>
+                
+</div>
+
+
+
+
+
+
                <form className="formulario-chk">
                 <button onClick={handleCompra}>Realizar compra</button>
                </form>
