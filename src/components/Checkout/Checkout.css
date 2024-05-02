@@ -46,5 +46,40 @@
 
 
 .DctoBox{
-    width: 45%;
+    width: 20%;
 }
+
+
+
+.goBack{
+    align-self: flex-start;
+    box-sizing: content-box;
+    background-color: transparent;
+    justify-content: space-between;
+    color:'rgb(117,127,126,1)';
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 0%;
+}
+
+.DctoBox.button{
+    align-self: center;
+}
+
+
+
+
+.formulario-chk button {
+    width: 100%;
+    padding: 8px;
+    background-color: rgb(37, 42, 44); /* Color de fondo del botón */
+    color: #ffffff; /* Color de texto del botón */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .formulario-chk button:hover {
+    background-color: rgb(71, 79, 83); /* Color de fondo del botón al pasar el ratón */
+  }
