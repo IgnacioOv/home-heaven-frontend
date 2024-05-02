@@ -1,10 +1,17 @@
+.main-title{
+    margin-top:80px;
+}
+
+
 .chk-wrapper {
     display: flex;
     flex-direction: row;
     justify-content:center;
     width:100%;
     padding: 2%;
+    align-items: center;
 }
+
 
 .tabla {
     width:55%;
@@ -14,12 +21,15 @@
     margin: 2%;
 }
 
+
 .columnas{
     background-color: dimgray;
     display: flex;
     flex-direction: row;
     color: ghostwhite;
 }
+
+
 
 
 .word {
@@ -29,6 +39,9 @@
     text-align: center; /* Centra el texto dentro de las columnas */
     padding: 5px; /* Añade un relleno a los párrafos */
 }
+
+
+
 
 
 
