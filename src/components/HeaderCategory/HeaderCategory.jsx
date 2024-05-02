@@ -10,7 +10,7 @@ const HeaderCategory = ({ categoryName }) => {
         <div className="header-category-content">
             <div className="main-title">Descubrí más</div>
             <div className="category-navigation">
-            <Link to="/">Home</Link> &gt; Todos los productos &gt; {categoryName}
+            <Link to="/" className="link-class">Home</Link> &gt; Todos los productos &gt; {categoryName}
             </div>
         </div>
     </div>
