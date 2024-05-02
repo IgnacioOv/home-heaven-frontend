@@ -1,18 +1,27 @@
+.main-title{
+    margin-top:80px;
+}
+
+
 .chk-wrapper {
     display: flex;
     flex-direction: row;
     justify-content:center;
     width:100%;
-    padding: 2%;
+    padding: 0%;
+    align-items: flex-start;
 }
 
+
 .tabla {
-    width:55%;
+    width:50%;
     border: 1px solid #ccc;
     justify-content: space-between;
     padding: 1%;
     margin: 2%;
+    margin-left: 0%;
 }
+
 
 .columnas{
     background-color: dimgray;
@@ -20,6 +29,8 @@
     flex-direction: row;
     color: ghostwhite;
 }
+
+
 
 
 .word {
@@ -32,6 +43,90 @@
 
 
 
+.texto-Resumen{
+    font-size:larger;
+    font-weight:500;
+    margin-bottom: 2.3%;
+}
+
+
 .DctoBox{
-    width: 45%;
+    width: 20%;
+    margin: 2%;
+    margin-top: 1%;
+}
+
+.inside-resumen{
+    margin-top: 4%;
+    margin-bottom: 4%;
+    font-size: 90%; 
+}
+
+.goBack{
+    align-self: flex-start;
+    box-sizing: content-box;
+    background-color: transparent;
+    justify-content: space-between;
+    color:'rgb(117,127,126,1)';
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 0%;
+    font-size: smaller;
+    margin-top: 3%;
+}
+
+.DctoBox.button{
+    align-self: center;
+    margin-left: 2%;
+}
+
+
+
+
+.formulario-chk button {
+    width: 100%;
+    padding: 8px;
+    background-color: rgb(37, 42, 44); /* Color de fondo del botón */
+    color: #ffffff; /* Color de texto del botón */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .formulario-chk button:hover {
+    background-color: rgb(71, 79, 83); /* Color de fondo del botón al pasar el ratón */
+  }
+
+
+
+
+
+
+
+
+  .checkout-items{
+    display: block;
+
+  }
+
+  .checkout-item{
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .smallimage{
+    width: 20px;
+    height: 20px;
+  }
+
+
+
+.summary-item{
+    display: flex;
+    margin-top:4%;
+    margin-bottom: 4%;
+    justify-content: space-between;
+    align-items: center;
 }
