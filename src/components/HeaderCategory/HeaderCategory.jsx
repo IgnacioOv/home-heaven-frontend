@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HeaderCategory.css'; 
 
 const HeaderCategory = ({ categoryName }) => {
@@ -9,7 +10,7 @@ const HeaderCategory = ({ categoryName }) => {
         <div className="header-category-content">
             <div className="main-title">Descubrí más</div>
             <div className="category-navigation">
-            Home &gt; Todos los productos &gt; {categoryName}
+            <Link to="/">Home</Link> &gt; Todos los productos &gt; {categoryName}
             </div>
         </div>
     </div>
