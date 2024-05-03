@@ -6,6 +6,8 @@ import Navbar from '../Navbar/Navbar';
 import HeaderCategory from '../HeaderCategory/HeaderCategory';  
 import FooterCategory from '../FooterCategory/FooterCategory';
 import './CategoryPage.css';
+import CategoriesBar from '../CategoriesBar/CategoriesBar';
+
 
 function CategoryPage() {
   const { categoryName } = useParams();
@@ -38,8 +40,10 @@ function CategoryPage() {
   };
 
   return (
-    <div>
-        <Navbar />
+    <>  
+    <Navbar/>
+    <div className='cateogry-page-container'>
+        <CategoriesBar />
         <HeaderCategory categoryName={categoryName} />
         <div className="category-grid">
           {currentItems.map(product => (
@@ -64,6 +68,7 @@ function CategoryPage() {
         </nav>
         <FooterCategory />
     </div>
+    </>
   );
 }
 

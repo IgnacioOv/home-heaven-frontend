@@ -3,10 +3,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #f4f5f7;
-    padding: 20px 0;
+    background-color: #f6f6f6;
+    padding: 40px 0;
     font-family: 'Poppins', sans-serif; 
-  
+}
   .footer-item {
     display: flex;
     align-items: center;
@@ -31,4 +31,3 @@
     font-size: 0.8em;
     margin: 0;
   }
-}

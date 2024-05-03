@@ -24,7 +24,6 @@ function App() {
           <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />                                      
           <Route path='search' element={<><Navbar /><SearchResult/> <Footer /></>} />
           <Route path="checkout" element={<><Navbar/><Checkout/><Footer/> </>} />
-                                             
         </Routes>
         </CartProvider> 
       </BrowserRouter>

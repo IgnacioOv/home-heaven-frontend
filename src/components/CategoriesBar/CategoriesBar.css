@@ -1,36 +1,36 @@
-.categories-bar{
+/* CategoriesBar.css */
+.categories-bar {
     background-color: #89B0AE;
-    padding: 0.6%;
     width: 100%;
-    text-align: center;
+    text-align: center; 
     position: fixed;
     z-index: 100;
-    margin-top: 0.8%;
-    height: 70px;
-    } 
-.categories-bar li{
+    height: 6%;
+} 
+
+.categories-bar li {
     list-style-type: none;
-    color: white;
     display: inline;
-    justify-content: center;
     padding: 6%;
     font-size: small;
 }
-.category{
-    cursor:pointer;
+
+.category {
+    cursor: pointer;
 }
-.category:hover{
-    color: #555B6E;
+
+.category-css {
+    color: white;
+    font-weight: 505;
+    text-decoration: none; /* Optional: removes underline from links */
+}
+
+.category-css:hover {
+    color: #555B6E; /* Change to blue on hover, you can choose any shade of blue */
 }
 
 @media (max-width: 768px) {
-
     .categories-bar{
         display:none;
     }
-}
-
-.category-css{
-    color: black;
-    font-weight: 505;
 }

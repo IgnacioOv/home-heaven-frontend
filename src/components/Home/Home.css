@@ -68,12 +68,12 @@
 }
 
 .home-container{
-  padding-top:5%;
+  padding-top:5.7%;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1800px) {
   .home-container{
-    padding-top: 4%;
+    padding-top: 6%;
   }
 
 
