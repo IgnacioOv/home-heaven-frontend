@@ -16,7 +16,8 @@ const ProductsCarousel = () => {
           throw new Error(`API request failed with status ${response.status}`);
         }
         const data = await response.json();
-        setProducts(data);
+        const products = data.filter((product) => product.recommended === true)
+        setProducts(products);
       } catch (error) {
         setError(error.message);
       } finally {
