@@ -1,8 +1,24 @@
 import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
+import React, { useState } from 'react';
 import './Login.css';
 import logoImage from '../../images/homeHLogo.png';
 
 const Login = () => {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+        if (!username || !password) {
+            alert('Por favor, completa todos los campos.');
+            return;
+        }
+        
+        alert('Enviado. Gracias por formar parte de Home Deco!');
+    };
+
     return (
         <> 
             
@@ -22,16 +38,16 @@ const Login = () => {
 
 
                     
-            <form className="formulario">
+            <form className="formulario" onSubmit={handleSubmit}>
                 <div className= "wrap-input">
                     <span className="form-text">USUARIO</span>
-                    <input type="text" placeholder='Ingrese su usuario'/>
+                    <input type="text" placeholder='Ingrese su usuario' value={username} onChange={(e) => setUsername(e.target.value)}/>
                 </div>
 
     
                 <div className= "wrap-input">
                     <span className="form-text">CONTRASEÑA</span>
-                    <input type="password" placeholder='Ingrese su contraseña'/>
+                    <input type="password" placeholder='Ingrese su contraseña' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <button type="submit">Ir</button>
             </form>
