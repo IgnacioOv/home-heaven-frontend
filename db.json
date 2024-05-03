@@ -97,7 +97,7 @@
       "price": "350000",
       "category": "LIVING",
       "seller": "DXXI",
-      "recommended": false,
+      "recommended": true,
       "id": 10
     }
   ]
