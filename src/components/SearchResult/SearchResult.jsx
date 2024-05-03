@@ -33,7 +33,7 @@ const SearchResult = () => {
                             return product.product && product.product && product.product.toLowerCase().includes(searchQuery.toLowerCase())
                     });
             if (results.length === 0) {
-                throw new Error('No products found');
+                throw new Error('No encontramos resultados para tu búsqueda');
             }
             setProducts(results);
         }) 
@@ -52,7 +52,7 @@ const SearchResult = () => {
           {isLoading ? (
             <p>Loading products...</p>
           ) : error ? (
-            <p>Error fetching products: {error}</p>
+            <p> {error}</p>
           ) : (
             
             products.map((product) => (
