@@ -1,5 +1,5 @@
 import React from 'react';
-import './Counter.css'; // Ensure the path to the CSS file is correct
+import './Counter.css';
 
 const Counter = ({ quantity, increment, decrement }) => {
     return (

@@ -1,18 +1,18 @@
-/* Counter.css */
+
 .counter-container {
     display: flex;
     align-items: center;
     width: 76px;
-    border: 1.2px solid #d8dade; /* Border around the entire counter */
+    border: 1.2px solid #d8dade; 
     padding: 0px;
-    border-radius: 5px; /* Optional: rounded corners */
+    border-radius: 5px; 
 }
 
 .counter-button {
     font-size: 1rem;
     padding: 2px 6px;
-    color: #0b0c0c; /* Text color for + and - */
-    background-color: #eae9e9; /* Background color for + and - */
+    color: #0b0c0c; 
+    background-color: #eae9e9; 
     border: none;
     cursor: pointer;
 }

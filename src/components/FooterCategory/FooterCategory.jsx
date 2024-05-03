@@ -1,4 +1,3 @@
-import React from 'react';
 import './FooterCategory.css';  
 import trofeo from '../../images/trophy.png';  
 import guarantee from '../../images/guarantee.png'; 

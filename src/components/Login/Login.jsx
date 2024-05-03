@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
-import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; 
+import { useState } from 'react';
 import './Login.css';
 import logoImage from '../../images/homeHLogo.png';
 
@@ -9,8 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
-        event.preventDefault(); // Evitar que el formulario se envíe automáticamente
-
+        event.preventDefault();
         if (!username || !password) {
             alert('Por favor, completa todos los campos.');
             return;

@@ -38,20 +38,20 @@
   .product-name, 
   .product-price, 
   .add-to-cart-button {
-    margin: 20px 0; /* Vertical spacing between details */
+    margin: 20px 0; 
   }
   
   .add-to-cart-button {
-    padding: 10px 20px; /* Button padding */
-    background-color: #89B0AE; /* Example button color */
-    color: white; /* Text color for the button */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px 20px; 
+    background-color: #89B0AE; 
+    color: white;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer; 
   }
   
   .description-container {
-    max-width: 600px; /* Limit width of description */
+    max-width: 600px; 
   }
   
   @media (min-width: 1500px) {

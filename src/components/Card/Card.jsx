@@ -13,12 +13,12 @@ export const Card = ({ product }) => {
   };
 
   const handleAddToCart = (e) => {
-    e.stopPropagation(); // Stop event propagation
+    e.stopPropagation(); 
     addToCart(product);
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);
-    }, 2000); // Hide the notification after 5 seconds
+    }, 2000); 
     console.log("Added to cart:", product.id);
   };
 

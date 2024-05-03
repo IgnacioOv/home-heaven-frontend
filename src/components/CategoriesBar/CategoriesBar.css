@@ -3,9 +3,9 @@
     width: 100%;
     text-align: center; 
     position: fixed;
-    top: 11%;  /* Set this based on the height of your Navbar */
-    z-index: 20;  /* Below the Navbar */
-    height: 6%;  /* Example fixed height; adjust as needed */
+    top: 11%;  
+    z-index: 20; 
+    height: 6%;  
 }
 
 
@@ -23,11 +23,11 @@
 .category-css {
     color: white;
     font-weight: 505;
-    text-decoration: none; /* Optional: removes underline from links */
+    text-decoration: none;
 }
 
 .category-css:hover {
-    color: #555B6E; /* Change to blue on hover, you can choose any shade of blue */
+    color: #555B6E;
 }
 
 @media (max-width: 768px) {

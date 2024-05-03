@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Card from '../Card/Card';
-import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import HeaderCategory from '../HeaderCategory/HeaderCategory';  
 import FooterCategory from '../FooterCategory/FooterCategory';

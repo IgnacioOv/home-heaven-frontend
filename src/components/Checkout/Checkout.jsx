@@ -1,6 +1,5 @@
-import React from 'react';
 import './Checkout.css';
-import { Link, useLocation} from 'react-router-dom'; // Importa Link desde react-router-dom
+import { Link, useLocation} from 'react-router-dom'; 
 import { useContext, useEffect } from 'react';
 
 import { CartContext } from '../../context/CartProvider';
@@ -11,14 +10,14 @@ const Checkout = () => {
     
     const { cartItems } = useContext(CartContext);
     const location = useLocation();
-   
+
 
     const handleCompra = ()=> {
         alert("¡Gracias por tu compra!");
     };
 
     useEffect(() => {
-        window.scrollTo(0, 0);  // Scroll to the top of the page when the component mounts
+        window.scrollTo(0, 0);  
     }, []); 
 
     const subtotal = location.state && location.state.subtotal ? location.state.subtotal : 0;
@@ -94,28 +93,27 @@ const Checkout = () => {
                 
 </div>
 
-               <form className="formulario-chk" action="/" method="get">
-                <button onClick={handleCompra}>Realizar compra</button>
-               </form>
-               <Link to="/" className="goBack" style={{color:'rgb(117,127,126,1)'}} >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" className="icon-submenu" fill="currentColor" >
-                        <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
-                    </svg>
-                    Seguir comprando
-                </Link>
-               
-           </div>
+            <form className="formulario-chk" action="/" method="get">
+            <button onClick={handleCompra}>Realizar compra</button>
+            </form>
+            <Link to="/" className="goBack" style={{color:'rgb(117,127,126,1)'}} >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" className="icon-submenu" fill="currentColor" >
+                    <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                </svg>
+                Seguir comprando
+            </Link>
+</div>
 
-           
+        
 
-       </div>
-
+    </div>
 
 
 
 
 
-           
+
+
         </div>
     );
 }

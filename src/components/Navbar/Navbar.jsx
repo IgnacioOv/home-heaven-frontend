@@ -7,8 +7,7 @@ import cartLogo from '../../images/cart.png';
 import filterPhone from '../../images/VectorfilterPhone2.png';
 import cartPhone from '../../images/VectorcarritoPhone.png';
 import { Link, useNavigate } from 'react-router-dom';
-import ShoppingCart from '../ShoppingCart/ShoppingCart';  // Ensure this path is correct
-
+import ShoppingCart from '../ShoppingCart/ShoppingCart';  
 
 const Navbar = () => {
     const [input, setinput] = useState("");

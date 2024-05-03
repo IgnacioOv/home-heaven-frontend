@@ -61,11 +61,10 @@
 }
 
 .products-carousel {
-  margin-bottom: 5px; /* Adjust this value as needed */
-}
+  margin-bottom: 5px; 
 
 .ver-mas-home {
-  margin-top: 5px; /* Adjust this value as needed */
+  margin-top: 5px; 
 }
 
 
@@ -75,4 +74,5 @@
   }
 
 
+}
 }

@@ -78,7 +78,7 @@
   border-radius:5px;
   padding-left: 4%;
   padding-top: 2%;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); /* Sombra del formulario */
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   padding-bottom: 2%;
 }
 
@@ -120,7 +120,7 @@
   box-sizing: border-box;
 
   border: none;
-  outline: none; /* Elimina el contorno al enfocar */
+  outline: none;
   background-color: transparent;
 }
 
@@ -128,8 +128,8 @@
 .formulario button {
   width: 100%;
   padding: 8px;
-  background-color: rgb(37, 42, 44); /* Color de fondo del botón */
-  color: #ffffff; /* Color de texto del botón */
+  background-color: rgb(37, 42, 44); 
+  color: #ffffff; 
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -137,7 +137,7 @@
 }
 
 .formulario button:hover {
-  background-color: rgb(71, 79, 83); /* Color de fondo del botón al pasar el ratón */
+  background-color: rgb(71, 79, 83);
 }
 
 

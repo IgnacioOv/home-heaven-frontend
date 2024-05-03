@@ -50,8 +50,8 @@ background-color: #b0ada6;
 
 .card-img {
   width: 100%;
-  height: 180px; /* Set the height to your desired fixed value */
-  object-fit: cover; /* This will ensure the image covers the set area without stretching */
+  height: 180px; 
+  object-fit: cover;
   border-radius: 2px 2px 0 0;
 }
 

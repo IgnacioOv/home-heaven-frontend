@@ -2,7 +2,7 @@ import './SearchResult.css';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
-import CategoriesBar from '../CategoriesBar/CategoriesBar';
+
 
 const SearchResult = () => {
     const [products, setProducts] = useState([]);

@@ -35,10 +35,10 @@
 
 .word {
     flex:1;
-    margin: 0; /* Quita los márgenes predeterminados de los párrafos */
-    flex-basis: 25%; /* Establece el tamaño base de cada columna al 25% del contenedor */
-    text-align: center; /* Centra el texto dentro de las columnas */
-    padding: 5px; /* Añade un relleno a los párrafos */
+    margin: 0; 
+    flex-basis: 25%;
+    text-align: center;
+    padding: 5px;
 }
 
 
@@ -74,57 +74,49 @@
     font-size: smaller;
     margin-top: 3%;
 }
-
 .DctoBox.button{
     align-self: center;
     margin-left: 2%;
 }
 
-
-
-
 .formulario-chk button {
     width: 100%;
     padding: 8px;
-    background-color: rgb(37, 42, 44); /* Color de fondo del botón */
-    color: #ffffff; /* Color de texto del botón */
+    background-color: rgb(37, 42, 44); 
+    color: #ffffff; 
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .formulario-chk button:hover {
-    background-color: rgb(71, 79, 83); /* Color de fondo del botón al pasar el ratón */
-  }
+}
+
+.formulario-chk button:hover {
+    background-color: rgb(71, 79, 83);
+}
 
 
-  .checkout-items{
+.checkout-items{
     display:flex;
     margin-left: 4%;
     flex-direction:column;
     margin-right: 9%;
-   
+}
 
-
-
-  }
-
-  .checkout-item{
+.checkout-item{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0.4%;
 
     
-  }
+}
 
-  .smallimage{
+.smallimage{
     width: 10%;
     height: 10%;
     border-radius: 8%;
-   
-  }
+
+}
 
 
 

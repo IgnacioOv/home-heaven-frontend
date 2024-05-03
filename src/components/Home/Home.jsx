@@ -1,13 +1,12 @@
 import { useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CategoriesBar from '../CategoriesBar/CategoriesBar';
 import './Home.css';
 import ProductsCarousel from '../ProductsCarousel/ProductsCarousel';
 import VerMasHome from '../VerMasHome/VerMasHome';
 
 const Home = () => {
     const descubriRef = useRef(null);
-    const navigate = useNavigate();  // Use useNavigate hook for programmatic navigation
+    const navigate = useNavigate();  
 
     const scrollToDescubri = () => {
         if (descubriRef.current) {
@@ -16,10 +15,10 @@ const Home = () => {
         }
     };
 
-    // Navigate and then scroll to top
+
     const goToTodosAndTop = useCallback(() => {
         navigate('/category/TODOS');
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top after navigation
+        window.scrollTo({ top: 0, behavior: 'smooth' }); 
     }, [navigate]);
 
     return (
