@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import './HeaderAddProduct.css'; 
 
 const HeaderAddProduct = () => {
   return (
