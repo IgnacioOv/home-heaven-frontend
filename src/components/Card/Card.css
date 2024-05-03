@@ -12,18 +12,19 @@
   outline: none;
 }
 
-.notification {
+.notificacion {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background-color: #89b0ae; /* Green background */
-  color: rgb(3, 3, 3);
+  background-color: #ffffffe3;
+  color: rgb(102, 102, 102);
   padding: 10px;
   border-radius: 5px;
-  z-index: 1500; /* Ensure it is visible on top of other content */
+  z-index: 1500;
+  font-size: 1em;
   box-shadow: 0 8px 8px rgba(0,0,0,0.1);
   transition: opacity 0.5s;
-  border-color: 3px solid black ;
+  border: 1px solid black;
 }
 
 .card-button {

@@ -21,6 +21,20 @@
     border-bottom: 1px solid #ccc;
 }
 
+.popupeliminado{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #ffffffe1;
+    color: rgb(102, 102, 102);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1500;
+    font-size: 1em;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+    transition: opacity 0.5s;
+    border: 1px solid rgb(10, 10, 10);
+}
 
 .itemprice{
     font-size: 0.9em;

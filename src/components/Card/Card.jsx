@@ -18,22 +18,25 @@ export const Card = ({ product }) => {
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);
-    }, 1000); // Hide the notification after 5 seconds
+    }, 2000); // Hide the notification after 5 seconds
     console.log("Added to cart:", product.id);
   };
 
   return (
+    <>
     <div className="card-container" onClick={handleNavigate}>
-      {showNotification && (
-        <div className="notification">
-          Producto agregado al carrito ✔️
-        </div>
-      )}
+      {showNotification }
       <img src={product.image} alt={product.description} className="card-img" />
       <p className="card-title">{product.product}</p>
       <p className="card-price">{"$" + product.price}</p>
       <button className="card-button" onClick={handleAddToCart}>Agregar</button>
     </div>
+    {showNotification && (
+      <div className="notificacion">
+        Producto agregado al carrito ✅
+      </div>
+    )}
+    </>
   );
 };
   

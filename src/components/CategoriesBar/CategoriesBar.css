@@ -1,9 +1,9 @@
 .categories-bar {
-    background-color: #89B0AE;
+    background-color: #89b0ae;
     width: 100%;
     text-align: center; 
     position: fixed;
-    top: 10%;  /* Set this based on the height of your Navbar */
+    top: 11%;  /* Set this based on the height of your Navbar */
     z-index: 20;  /* Below the Navbar */
     height: 6%;  /* Example fixed height; adjust as needed */
 }

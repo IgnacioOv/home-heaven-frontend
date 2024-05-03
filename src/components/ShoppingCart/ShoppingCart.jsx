@@ -10,7 +10,7 @@ const ShoppingCart = ({ closeCart }) => {
     const { cartItems, incrementQuantity, decrementQuantity, removeItem,} = useContext(CartContext);
     const [coupon, setCoupon] = useState('');
     const [discount, setDiscount] = useState(0);
-
+    const [showPopUp, setShowPopUp] = useState(false);
     const navigate = useNavigate();
 
     const handleCouponChange = (e) => {
@@ -28,17 +28,16 @@ const ShoppingCart = ({ closeCart }) => {
     const handleRemoveItem = (id) => {
         console.log("Removing item", id); // Check if this function is called
         removeItem(id);
+        setShowPopUp(true);
+        setTimeout(() => {setShowPopUp(false); }, 2000);
     };
-    
-    const finalizePurchase = () => {
-        console.log("Finalizing purchase");
-    };
+
 
     const subtotal = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
     const discountAmount = subtotal * discount;
     const total = subtotal - discountAmount;
 
-    if (cartItems.length === 0) {
+    if (cartItems.length === 0  && !showPopUp) {
         return (
             <div className="shopping-cart">
                 <div className="cart-header">
@@ -52,16 +51,16 @@ const ShoppingCart = ({ closeCart }) => {
         );
     }
     const handleFinalizePurchase = () => {
-        navigate("/checkout", { 
-            state: { 
-                subtotal,
-                discountAmount,
-                total,
-            } 
-        });
-        window.scrollTo(0, 0);  // Scroll to the top of the page
-    };
-    
+    navigate("/checkout", { 
+        state: { 
+            subtotal,
+            discountAmount,
+            total,
+        } 
+    });
+    window.scrollTo(0, 0);  // Scroll to the top of the page
+};
+
     return (
         <div className="shopping-cart">
             <div className="cart-header">
@@ -86,10 +85,16 @@ const ShoppingCart = ({ closeCart }) => {
                             </div>
                             <button onClick={() => handleRemoveItem(item.id)} className="delete-button">
                                 <img src={trashIcon} alt="Delete" />
+                                {showPopUp }
                             </button>
                         </div>
                     ))}
                 </div>
+                {showPopUp && (
+                    <div className="popupeliminado">
+                        Producto eliminado del carrito ❌
+                    </div>
+                    )}
                 <div className="cart-footer">
                     <div className="subtotal-display">
                         Subtotal: ${subtotal.toFixed(2)}
