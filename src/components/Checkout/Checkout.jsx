@@ -60,8 +60,8 @@ const Checkout = () => {
                     <div key={item.id} className="checkout-item">
                         <img src={item.image} alt={item.description} className='smallimage'/>
                         <p className='itemtitle'>{item.product}</p>
-                        <p className='itemprice'>$ {item.price}</p>
                         <p className='itemquantity'>{item.quantity}</p>
+                        <p className='itemprice'>$ {item.price}</p>
                     </div> 
                         ))}
                 </div>
