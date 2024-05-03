@@ -63,12 +63,12 @@ function CategoryPage() {
                 </button>
               </li>
             ))}
-          </ul>
           {currentPage < totalPages && (
             <button onClick={nextPage} aria-label="Go to next page">
               Next
             </button>
           )}
+          </ul>
         </nav>
         <FooterCategory />
       </div>
