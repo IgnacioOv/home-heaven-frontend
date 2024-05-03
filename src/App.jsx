@@ -11,13 +11,14 @@ import CategoryPage from './components/CategoryPage/CategoryPage';
 import SearchResult from './components/SearchResult/SearchResult';
 import Checkout from './components/Checkout/Checkout';
 import CategoriesBar from './components/CategoriesBar/CategoriesBar';
+import AddProductForm from './components/AddProduct/AddProduct';
+import HeaderAddProduct from './components/HeaderAddProduct/HeaderAddProduct';
 
 function App() {
   return (
       <BrowserRouter>
         <CartProvider> 
         <Routes>
-          
         <Route path="/" element={<> <Navbar /><CategoriesBar/> <Home /> <Footer /> </>} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
@@ -25,6 +26,7 @@ function App() {
           <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />                                      
           <Route path='search' element={<><Navbar /><CategoriesBar/><SearchResult/><Footer /></>} />
           <Route path="checkout" element={<><Navbar/><CategoriesBar/><Checkout/><Footer/> </>} />
+          <Route path='addproduct' element={<><Navbar/><HeaderAddProduct></HeaderAddProduct><AddProductForm/><Footer/> </>} />
         </Routes>
         </CartProvider> 
       </BrowserRouter>
