@@ -1,35 +1,104 @@
 {
-"products":[
-        {
-            "id":1,
-            "product": "Lámpara de mesa",
-            "image":"https://dcdn.mitiendanube.com/stores/365/634/products/a4cf0ca8-a2c4-4b70-b3c6-379978c9f6f9-00b7d9747462fe298016335441521546-1024-1024.jpeg",
-            "description": "Lámpara de mesa moderna con base de metal y pantalla de tela",
-            "price": 50000,
-            "category": "DORMITORIO", 
-            "seller": "Decoraciones Modernas S.A.",
-            "recommended": true
-        },
-        {
-            "id":2,
-            "product": "Almohadon decorativo",
-            "image":"https://pintureriasagitario.com.ar/wp-content/uploads/2023/01/Almohadon-Tejido-60x40-mas-clara.jpeg",
-            "description": "Almohadon decorativo de terciopelo con estampado floral",
-            "price": 10000,
-            "category": "DORMITORIO", 
-            "seller": "Textiles Elegantes Ltda.",
-            "recommended": false
-        },
-        {
-            "id":3,
-            "product": "Espejo de pared",
-            "image":"https://i.blogs.es/c9598d/adhesivo/450_1000.jpeg",
-            "description": "Espejo de pared rectangular con marco de madera",
-            "price": 70000,
-            "category": "DECORACIÓN", 
-            "seller": "Muebles y Decoración del Hogar S.A.",
-            "recommended": true
-        }
-] 
-
+  "products": [
+    {
+      "id": 1,
+      "product": "Lámpara de mesa",
+      "image": "https://dcdn.mitiendanube.com/stores/365/634/products/a4cf0ca8-a2c4-4b70-b3c6-379978c9f6f9-00b7d9747462fe298016335441521546-1024-1024.jpeg",
+      "description": "Lámpara de mesa moderna con base de metal y pantalla de tela",
+      "price": 50000,
+      "category": "DORMITORIO",
+      "seller": "Decoraciones Modernas S.A.",
+      "recommended": true
+    },
+    {
+      "id": 2,
+      "product": "Almohadon decorativo",
+      "image": "https://pintureriasagitario.com.ar/wp-content/uploads/2023/01/Almohadon-Tejido-60x40-mas-clara.jpeg",
+      "description": "Almohadon decorativo de terciopelo con estampado floral",
+      "price": 10000,
+      "category": "DORMITORIO",
+      "seller": "Textiles Elegantes Ltda.",
+      "recommended": false
+    },
+    {
+      "id": 3,
+      "product": "Espejo de pared",
+      "image": "https://i.blogs.es/c9598d/adhesivo/450_1000.jpeg",
+      "description": "Espejo de pared rectangular con marco de madera",
+      "price": 70000,
+      "category": "DECORACIÓN",
+      "seller": "Muebles y Decoración del Hogar S.A.",
+      "recommended": true
+    },
+    {
+      "product": "Lámpara de Escritorio",
+      "image": "https://acdn.mitiendanube.com/stores/003/965/394/products/lampara-de-escritorio-blanco-4966bbe5f971c03c6317008337263298-1024-1024.jpg",
+      "description": "Lampara escritorio blanca",
+      "price": "75000",
+      "category": "DORMITORIO",
+      "seller": "Decoraciones Modernas S.A.",
+      "recommended": false,
+      "id": 4
+    },
+    {
+      "product": "Alfombra Algodón con Flecos",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/787176-1600-auto?v=638469949638370000&width=1600&height=auto&aspect=true",
+      "description": "Alfombra de ambiente con flejos compuesta por algodón.\n\n",
+      "price": "56000",
+      "category": "DECORACIÓN",
+      "seller": "Decoraciones Modernas S.A.",
+      "recommended": false,
+      "id": 5
+    },
+    {
+      "product": "Pantalla de Ratán Globo Aerostático",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/786711-1600-auto?v=638467156107370000&width=1600&height=auto&aspect=true",
+      "description": "Pantalla colgante confeccionada en ratán con forma de globo aerostático.",
+      "price": "90000",
+      "category": "DECORACIÓN",
+      "seller": "Decoraciones Modernas S.A.",
+      "recommended": false,
+      "id": 6
+    },
+    {
+      "product": "Contenedor Rectangular de Algodón Mediano",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/792183-1600-auto?v=638497562854700000&width=1600&height=auto&aspect=true",
+      "description": "Contenedor organizador multiuso realizado con hierro, hilo de algodón y tela.",
+      "price": "25000",
+      "category": "DECORACIÓN",
+      "seller": "Decoraciones Modernas S.A.",
+      "recommended": false,
+      "id": 7
+    },
+    {
+      "product": "Repasador Waffle",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/791713-1600-auto?v=638496665524470000&width=1600&height=auto&aspect=true",
+      "description": "Repasador liso estilo waffle compuesto por algodón.",
+      "price": "8500",
+      "category": "COCINA",
+      "seller": "Textiles Elegantes Ltda.",
+      "recommended": false,
+      "id": 8
+    },
+    {
+      "product": "Alfombra de Baño Chica Lisa Memory Foam",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/784534-1600-auto?v=638451719293070000&width=1600&height=auto&aspect=true",
+      "description": "Alfombra de baño rectangular lisa, con memoria y realizada en microfibra extra suave.",
+      "price": "23000",
+      "category": "BAÑO",
+      "seller": "Textiles Elegantes Ltda.",
+      "recommended": false,
+      "id": 9
+    },
+    {
+      "product": "Sillón Lounge",
+      "image": "https://www.dxxi.com.ar/wp-content/uploads/2016/09/dxxi-sillonr-lounge-web.jpg",
+      "description": "Sillón con chaise longe, esquinero de tres cuerpos con placa soft y almohadones de vellón. Medidas, telas y patas a elección.",
+      "price": "350000",
+      "category": "LIVING",
+      "seller": "DXXI",
+      "recommended": false,
+      "id": 10
+    }
+  ]
 }
