@@ -99,6 +99,106 @@
       "seller": "DXXI",
       "recommended": true,
       "id": 10
+    },
+    {
+      "product": "Frazada Fleece",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/789674-1600-auto?v=638489578571500000&width=1600&height=auto&aspect=true",
+      "description": "Composición: microfibra 100% poliéster de 250 gramos, Medidas: para colchón de hasta 1.50 m de ancho x 1.90 m de largo x 0.25 m de alto. Incluye: 1 pieza",
+      "price": "94990",
+      "category": "DORMITORIO",
+      "seller": "DXXI",
+      "recommended": false,
+      "id": 11
+    },
+    {
+      "product": "Perchero Bambú",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/790159-1600-auto?v=638489861436300000&width=1600&height=auto&aspect=true",
+      "description": "Perchero de bambú con ganchos para colgar y dos estantes. De poliester y bambú",
+      "price": "87990",
+      "category": "LIVING",
+      "seller": "Lisa",
+      "recommended": false,
+      "id": 12
+    },
+    {
+      "product": "Set de Baño Mickey",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/782850-1600-auto?v=638445720563830000&width=1600&height=auto&aspect=true",
+      "description": "Perchero de bambú con ganchos para colgar y dos estantes. De poliester y bambú",
+      "price": "12502",
+      "category": "BAÑO",
+      "seller": "Lisa",
+      "recommended": false,
+      "id": 13
+    },
+    {
+      "product": "Bata de baño Lovely",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/789351-1600-auto?v=638485451876500000&width=1600&height=auto&aspect=true",
+      "description": "Bata de baño lisa compuesta por algodón de 300 g/m2. Ideal para usar después de cada baño que tomes o simplemente en la comodidad de tu hogar. Disfruta de nuestras batas, cada tela fue elegida y pensada para que sientas la calidez en cada puesta.",
+      "price": "56200",
+      "category": "BAÑO",
+      "seller": "Lisa",
+      "recommended": false,
+      "id": 14
+    },
+    {
+      "product": "Cortina de Baño",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/764339-1600-auto?v=638381699099970000&width=1600&height=auto&aspect=true",
+      "description": "Cortina de baño estampada compuesta por puro algodón. Contiene 12 ojalillos. No incluye: protector. Convertí tu baño en un espacio de relax con nuestros diseños y texturas. ",
+      "price": "21300",
+      "category": "BAÑO",
+      "seller": "Lisa",
+      "recommended": false,
+      "id": 15
+    },
+    {
+      "product": "Mantel de Bambú",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/792549-1600-auto?v=638502547112830000&width=1600&height=auto&aspect=true",
+      "description": "Mantel rectangular estampado, compuesto por poliéster. Para que prepares los platos que mejor te salen, además de ingredientes, necesitás complementos que formen parte de ese ritual de la cocina.",
+      "price": "31400",
+      "category": "COCINA",
+      "seller": "Minu",
+      "recommended": false,
+      "id": 16
+    },
+    {
+      "product": "Set de Manopla",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/786916-1600-auto?v=638467320641170000&width=1600&height=auto&aspect=true",
+      "description": "Set de manopla y agarradera de cocina estampado, compuesto por puro algodón.",
+      "price": "11400",
+      "category": "COCINA",
+      "seller": "Minu",
+      "recommended": false,
+      "id": 17
+    },
+    {
+      "product": "Secaplatos Bambú",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/779424-1600-auto?v=638424992535200000&width=1600&height=auto&aspect=true",
+      "description": "Secaplatos plegable confeccionado en bamboo.",
+      "price": "26000",
+      "category": "COCINA",
+      "seller": "Minu",
+      "recommended": false,
+      "id": 18
+    },
+    {
+      "product": "Florero Magic Grey",
+      "image": "https://www.casa-chic.com/media/catalog/product/2/8/2832201169gx9ta1.jpg?optimize=low&fit=bounds&height=2760&width=1845",
+      "description": "Florero de vidrio con morfología esférica y textura de rayas en color gris humo, ideal para la mesita de luz, decorar el baño o para la mesa del living. Te recomendamos combinarlo con otros floreros de la colección. Medidas: 10,5 x 8 cm. Base: 5 cm. Boca: 3,5 cm.",
+      "price": "16300",
+      "category": "LIVING",
+      "seller": "Minu",
+      "recommended": false,
+      "id": 19
+    },
+    {
+      "product": "Almohadón Artic",
+      "image": "https://www.casa-chic.com/media/catalog/product/i/m/img_4375.jpgw.jpg?optimize=low&fit=bounds&height=2760&width=1845",
+      "description": "Almohadón en piel sintética de pelo largo en el frente. Reverso de algodón al tono. Relleno vellón siliconado soft. Forro lienzo crudo. Cierre invisible al tono. Ideal para todo tipo de ambientaciones. Medida 55 x 55 cm.",
+      "price": "65000",
+      "category": "LIVING",
+      "seller": "Minu",
+      "recommended": false,
+      "id": 20
     }
   ]
 }

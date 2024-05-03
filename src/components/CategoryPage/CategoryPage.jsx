@@ -8,12 +8,11 @@ import FooterCategory from '../FooterCategory/FooterCategory';
 import './CategoryPage.css';
 import CategoriesBar from '../CategoriesBar/CategoriesBar';
 
-
 function CategoryPage() {
   const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 16;
+  const itemsPerPage = 8;
 
   useEffect(() => {
     fetch(`http://localhost:3000/products`)
@@ -32,17 +31,22 @@ function CategoryPage() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const currentItems = products.slice(indexOfLastItem - itemsPerPage, indexOfLastItem);
 
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = pageNumber => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
+
   const nextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
+      window.scrollTo(0, 0);
     }
   };
 
   return (
     <>  
-    <Navbar/>
-    <div className='cateogry-page-container'>
+      <Navbar />
+      <div className='category-page-container'>
         <CategoriesBar />
         <HeaderCategory categoryName={categoryName} />
         <div className="category-grid">
@@ -67,7 +71,7 @@ function CategoryPage() {
           )}
         </nav>
         <FooterCategory />
-    </div>
+      </div>
     </>
   );
 }
