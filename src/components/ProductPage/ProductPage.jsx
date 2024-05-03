@@ -10,6 +10,7 @@ const ProductPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { addToCart } = useContext(CartContext);
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,12 +36,21 @@ const ProductPage = () => {
     if (selectedProduct) {
       addToCart(selectedProduct);
       console.log("Added to cart:", selectedProduct.id);
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 2000);  // Hide the notification after 5 seconds
     }
   };
 
   return (
     <div className="product-page">
       <CategoriesBar />
+      {showNotification && (
+        <div className="notification">
+          Producto agregado al carrito ✔️
+        </div>
+      )}
       {isLoading ? (
         <p>Loading product...</p>
       ) : error ? (

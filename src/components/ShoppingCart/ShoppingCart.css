@@ -88,6 +88,7 @@ margin-left: 3%;
     align-items: center;
     border: none; 
     background: transparent; 
+    cursor: pointer;
 }
 
 .coupon-section {

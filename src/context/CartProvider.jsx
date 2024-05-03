@@ -33,6 +33,7 @@ export const CartProvider = ({ children }) => {
         setCartItems(prevItems => prevItems.filter(item => item.id !== id));
     };
 
+
     return (
         <CartContext.Provider value={{ cartItems, addToCart, incrementQuantity, decrementQuantity, removeItem }}>
             {children}

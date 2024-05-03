@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './ShoppingCart.css';
-import { useContext } from 'react';
 import { CartContext } from '../../context/CartProvider';
 import Counter from '../Counter/Counter';
 import trashIcon from '../../images/trash.png';
@@ -22,11 +21,15 @@ const ShoppingCart = ({ closeCart }) => {
         }
     };
 
+    const handleRemoveItem = (id) => {
+        console.log("Removing item", id); // Check if this function is called
+        removeItem(id);
+    };
+    
     const finalizePurchase = () => {
         console.log("Finalizing purchase");
     };
 
-    // Calculate the subtotal of all cart items
     const subtotal = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
     const discountAmount = subtotal * discount;
     const total = subtotal - discountAmount;
@@ -67,7 +70,7 @@ const ShoppingCart = ({ closeCart }) => {
                                     />
                                 </div>
                             </div>
-                            <button onClick={() => removeItem(item.id)} className="delete-button">
+                            <button onClick={() => handleRemoveItem(item.id)} className="delete-button">
                                 <img src={trashIcon} alt="Delete" />
                             </button>
                         </div>

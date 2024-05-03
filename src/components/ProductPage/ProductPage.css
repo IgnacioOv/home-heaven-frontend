@@ -18,6 +18,21 @@
     height: auto; /* Maintain aspect ratio */
     margin-right: 20px; /* Space between image and details */
   }
+
+  .notification {
+    position: fixed;
+    bottom: 5%;
+    left: 2%;
+    background-color: #89b0aef4; /* Green background */
+    color: rgb(255, 254, 254);
+    padding: 10px;
+    font-size: 0.8em;
+    border-radius: 5px;
+    z-index: 1500; /* Ensure it is visible on top of other content */
+    box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+    transition: opacity 0.5s;
+    border-color: 3px solid black ;
+  }
   
   .description-container, 
   .product-name, 
