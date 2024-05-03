@@ -24,8 +24,8 @@ const Login = () => {
                     
             <form className="formulario">
                 <div className= "wrap-input">
-                    <span className="form-text">EMAIL</span>
-                    <input type="text" placeholder='Ingrese su email'/>
+                    <span className="form-text">USUARIO</span>
+                    <input type="text" placeholder='Ingrese su usuario'/>
                 </div>
 
     
