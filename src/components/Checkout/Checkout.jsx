@@ -1,6 +1,6 @@
 import React from 'react';
 import './Checkout.css';
-import { Link, useLocation } from 'react-router-dom'; // Importa Link desde react-router-dom
+import { Link, useLocation} from 'react-router-dom'; // Importa Link desde react-router-dom
 import { useContext, useEffect } from 'react';
 
 import { CartContext } from '../../context/CartProvider';
@@ -11,9 +11,10 @@ const Checkout = () => {
     
     const { cartItems } = useContext(CartContext);
     const location = useLocation();
+   
+
     const handleCompra = ()=> {
         alert("¡Gracias por tu compra!");
-
     };
 
     useEffect(() => {
@@ -76,29 +77,24 @@ const Checkout = () => {
                 <hr />
                 <div className="summary-item">
                     <span className="inside-resumen">Subtotal:</span>
-                    <span className="summary-dots"></span>
+        
                     <span className="summary-value">{subtotal}</span>
                 </div>
                 <div className="summary-item">
                     <span className="inside-resumen">Descuentos:</span>
-                    <span className="summary-dots"></span>
+                    
                     <span className="summary-value">{discountAmount}</span>
                 </div>
 
                 <div className="summary-item">
                     <span className="inside-resumen">Total:</span>
-                    <span className="summary-dots"></span>
+                
                     <span className="summary-value">{total}</span>
                 </div>
                 
 </div>
 
-
-
-
-
-
-               <form className="formulario-chk">
+               <form className="formulario-chk" action="/" method="get">
                 <button onClick={handleCompra}>Realizar compra</button>
                </form>
                <Link to="/" className="goBack" style={{color:'rgb(117,127,126,1)'}} >
