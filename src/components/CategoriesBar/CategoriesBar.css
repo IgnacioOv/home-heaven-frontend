@@ -1,12 +1,13 @@
-/* CategoriesBar.css */
 .categories-bar {
     background-color: #89B0AE;
     width: 100%;
     text-align: center; 
     position: fixed;
-    z-index: 100;
-    height: 6%;
-} 
+    top: 10%;  /* Set this based on the height of your Navbar */
+    z-index: 20;  /* Below the Navbar */
+    height: 6%;  /* Example fixed height; adjust as needed */
+}
+
 
 .categories-bar li {
     list-style-type: none;

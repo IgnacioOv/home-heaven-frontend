@@ -1,37 +1,46 @@
-import { useState, useEffect } from 'react';
-import './ProductPage.css';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import './ProductPage.css';
 import CategoriesBar from '../CategoriesBar/CategoriesBar';
+import { CartContext } from '../../context/CartProvider';
 
 const ProductPage = () => {
   const { id } = useParams();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true); // Set loading state to true
+      setIsLoading(true);
       try {
         const response = await fetch(`http://localhost:3000/products/${id}`);
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);
         }
         const data = await response.json();
-        setSelectedProduct(data); // Update selected product state
+        setSelectedProduct(data);
       } catch (error) {
-        setError(error.message); // Set error state
+        setError(error.message);
       } finally {
-        setIsLoading(false); // Set loading state to false regardless of success or error
+        setIsLoading(false);
       }
     };
 
-    fetchData(); // Fetch data on component mount
-  }, [id]); // Dependency array: refetch if id changes
+    fetchData();
+  }, [id]);
+
+  const handleAddToCart = () => {
+    if (selectedProduct) {
+      addToCart(selectedProduct);
+      console.log("Added to cart:", selectedProduct.id);
+    }
+  };
 
   return (
     <div className="product-page">
-      <CategoriesBar/>
+      <CategoriesBar />
       {isLoading ? (
         <p>Loading product...</p>
       ) : error ? (
@@ -47,7 +56,7 @@ const ProductPage = () => {
             <h2 className="product-name">{selectedProduct.product}</h2>
             <p className="product-description">{selectedProduct.description}</p>
             <p className="product-price">${selectedProduct.price}</p>
-            <button className="add-to-cart-button">Añadir al carrito</button>
+            <button className="add-to-cart-button" onClick={handleAddToCart}>Añadir al carrito</button>
           </div>
         </div>
       ) : (
@@ -56,4 +65,5 @@ const ProductPage = () => {
     </div>
   );
 }
+
 export default ProductPage;

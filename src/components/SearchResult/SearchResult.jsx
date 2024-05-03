@@ -47,7 +47,6 @@ const SearchResult = () => {
     return (
       <>
     <div className='search-container'>
-        <CategoriesBar/>  
         <div className='cardscontainer'>
           {isLoading ? (
             <p>Loading products...</p>

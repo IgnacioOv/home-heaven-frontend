@@ -6,8 +6,12 @@
     width: 100%;
     background-color: rgb(253, 253, 253);
     position: fixed;
-    z-index:1000;
+    top: 0; 
+    height: 8%;
+    z-index: 2000;
 }
+
+
 .navbar-mobile {
     display: none;
 }
@@ -44,10 +48,10 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 990; /* Below the shopping cart but above the navbar */
+    z-index: 99; /* Below the shopping cart but above the navbar */
 }
 .navbar-desktop, .navbar-mobile {
-    z-index: 500; /* Any value less than the overlay but ensures it's above the page content */
+    z-index: 80; /* Any value less than the overlay but ensures it's above the page content */
 }
 
 

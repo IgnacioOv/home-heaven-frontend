@@ -12,25 +12,26 @@
 .image-container img{
   opacity: 40%;
   width: 100%;
-  height: 70vh;
-
+  margin-top: 7%;
+  height: 60vh;
 }
 
 .image-container h1 {
   font-size: 1.5em;
-  margin: 0px;
-  padding: 0px;
   position:absolute;
   width: 40%;
-  top:35%;
+  top:40%;
   color:#606060;
   font-weight: normal;
+  justify-content: center;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid gray;
 }
 
   .image-container p {
   position: absolute;
-  margin-top: 10%;
+  margin-top: 15%;
   background: #555B6E;
   padding: 1%;
   color: white;
@@ -67,9 +68,6 @@
   margin-top: 5px; /* Adjust this value as needed */
 }
 
-.home-container{
-  padding-top:5.7%;
-}
 
 @media (min-width: 1800px) {
   .home-container{

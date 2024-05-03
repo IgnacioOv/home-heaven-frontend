@@ -10,6 +10,7 @@ import { CartProvider } from './context/CartProvider';
 import CategoryPage from './components/CategoryPage/CategoryPage';
 import SearchResult from './components/SearchResult/SearchResult';
 import Checkout from './components/Checkout/Checkout';
+import CategoriesBar from './components/CategoriesBar/CategoriesBar';
 
 function App() {
   return (
@@ -17,13 +18,13 @@ function App() {
         <CartProvider> 
         <Routes>
           
-        <Route path="/" element={<> <Navbar /> <Home /> <Footer /> </>} />
+        <Route path="/" element={<> <Navbar /><CategoriesBar/> <Home /> <Footer /> </>} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="product/:id" element={<><Navbar/><ProductPage/><Footer /></>}/>
+          <Route path="product/:id" element={<><Navbar/><CategoriesBar/><ProductPage/><Footer /></>}/>
           <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />                                      
-          <Route path='search' element={<><Navbar /><SearchResult/><Footer /></>} />
-          <Route path="checkout" element={<><Navbar/><Checkout/><Footer/> </>} />
+          <Route path='search' element={<><Navbar /><CategoriesBar/><SearchResult/><Footer /></>} />
+          <Route path="checkout" element={<><Navbar/><CategoriesBar/><Checkout/><Footer/> </>} />
         </Routes>
         </CartProvider> 
       </BrowserRouter>
