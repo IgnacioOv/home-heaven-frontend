@@ -19,14 +19,14 @@ const ShoppingCart = ({ closeCart }) => {
 
     const applyCoupon = () => {
         if (coupon.toLowerCase() === "descuento50%") {
-            setDiscount(0.5); // Apply a 50% discount
+            setDiscount(0.5); 
         } else {
-            setDiscount(0); // No discount
+            setDiscount(0); 
         }
     };
 
     const handleRemoveItem = (id) => {
-        console.log("Removing item", id); // Check if this function is called
+        console.log("Removing item", id);
         removeItem(id);
         setShowPopUp(true);
         setTimeout(() => {setShowPopUp(false); }, 2000);
@@ -117,8 +117,7 @@ const ShoppingCart = ({ closeCart }) => {
                         />
                         <button onClick={applyCoupon} className="apply-coupon-button">Aplicar</button>
                     </div>
-                   {/* <button onClick={()=> navigate("/checkout")} className="finalize-purchase-button">Finalizar Compra</button>*/}
-                   <button onClick={handleFinalizePurchase} className="finalize-purchase-button">Finalizar Compra</button>
+                    <button onClick={handleFinalizePurchase} className="finalize-purchase-button">Finalizar Compra</button>
                 </div>
             </div>
         </div>
