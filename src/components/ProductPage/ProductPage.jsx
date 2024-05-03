@@ -48,7 +48,7 @@ const ProductPage = () => {
       <CategoriesBar />
       {showNotification && (
         <div className="notification">
-          Producto agregado al carrito ✔️
+          Producto agregado al carrito ✅
         </div>
       )}
       {isLoading ? (
