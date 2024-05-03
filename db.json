@@ -28,7 +28,7 @@
       "price": 70000,
       "category": "DECORACIÓN",
       "seller": "Muebles y Decoración del Hogar S.A.",
-      "recommended": true
+      "recommended": false
     },
     {
       "product": "Lámpara de Escritorio",
@@ -127,7 +127,7 @@
       "price": "12502",
       "category": "BAÑO",
       "seller": "Lisa",
-      "recommended": false,
+      "recommended": true,
       "id": 13
     },
     {
