@@ -1,8 +1,8 @@
-import React from 'react';
 import './SearchResult.css';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
+import CategoriesBar from '../CategoriesBar/CategoriesBar';
 
 const SearchResult = () => {
     const [products, setProducts] = useState([]);
@@ -43,20 +43,25 @@ const SearchResult = () => {
             setIsLoading(false);
         } 
     };
+    console.log("entre al search result")
     return (
-        <>  
-        <div className='search-container'>
-        {isLoading ? (
-        <p>Loading products...</p>
-      ) : error ? (
-        <p>Error fetching products: {error}</p>
-      ) : (
-        products.map((product) => (
-          <Card key={product.id} product={product} />
-        ))
-      )}
-        </div>
-        </>
+      <>
+    <div className='search-container'>
+        <CategoriesBar/>  
+        <div className='cardscontainer'>
+          {isLoading ? (
+            <p>Loading products...</p>
+          ) : error ? (
+            <p>Error fetching products: {error}</p>
+          ) : (
+            products.map((product) => (
+              <Card key={product.id} product={product} />
+            ))
+          )}
+          </div>
+      </div>
+      
+  </>
     );
 };
 
