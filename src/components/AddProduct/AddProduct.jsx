@@ -68,7 +68,7 @@ function AddProductForm() {
         </div>
         <div className="form-group">
           <label htmlFor="description">Descripción:</label>
-          <input id="description" name="description" value={product.description} onChange={handleChange} ></input>
+          <input type= "text" id="description" name="description" value={product.description} onChange={handleChange} ></input>
         </div>
         <div className="form-group">
           <label htmlFor="price">Precio:</label>

@@ -199,6 +199,16 @@
       "seller": "Minu",
       "recommended": false,
       "id": 20
+    },
+    {
+      "product": "Almohadon Disney",
+      "image": "https://arredo.vtexassets.com/arquivos/ids/707205-1600-auto?v=638374000964200000&width=1600&height=auto&aspect=true",
+      "description": "Funda de almohadón estampada Minnie y Mickey con cierre, compuesta por algodón. Licencia Oficial Disney.",
+      "price": "25000",
+      "category": "LIVING",
+      "seller": "Juliana",
+      "recommended": false,
+      "id": 21
     }
   ]
 }
