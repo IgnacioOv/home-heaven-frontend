@@ -4,10 +4,14 @@ import { CartContext } from '../../context/CartProvider';
 import Counter from '../Counter/Counter';
 import trashIcon from '../../images/trash.png';
 
+import {useNavigate} from "react-router-dom";
+
 const ShoppingCart = ({ closeCart }) => {
-    const { cartItems, incrementQuantity, decrementQuantity, removeItem } = useContext(CartContext);
+    const { cartItems, incrementQuantity, decrementQuantity, removeItem,} = useContext(CartContext);
     const [coupon, setCoupon] = useState('');
     const [discount, setDiscount] = useState(0);
+
+    const navigate = useNavigate();
 
     const handleCouponChange = (e) => {
         setCoupon(e.target.value);
@@ -47,7 +51,15 @@ const ShoppingCart = ({ closeCart }) => {
             </div>
         );
     }
-
+    const handleFinalizePurchase = () => {
+        navigate("/checkout", { 
+            state: { 
+                subtotal,
+                discountAmount,
+                total,
+            } 
+        });
+    };
     return (
         <div className="shopping-cart">
             <div className="cart-header">
@@ -98,7 +110,8 @@ const ShoppingCart = ({ closeCart }) => {
                         />
                         <button onClick={applyCoupon} className="apply-coupon-button">Aplicar</button>
                     </div>
-                    <button onClick={finalizePurchase} className="finalize-purchase-button">Finalizar Compra</button>
+                   {/* <button onClick={()=> navigate("/checkout")} className="finalize-purchase-button">Finalizar Compra</button>*/}
+                   <button onClick={handleFinalizePurchase} className="finalize-purchase-button">Finalizar Compra</button>
                 </div>
             </div>
         </div>

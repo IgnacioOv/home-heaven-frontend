@@ -1,20 +1,26 @@
 import React from 'react';
 import './Checkout.css';
-import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
+import { Link, useLocation } from 'react-router-dom'; // Importa Link desde react-router-dom
 import { useContext } from 'react';
+
 import { CartContext } from '../../context/CartProvider';
 
+
 const Checkout = () => {
-    
-    const variableToChange = 32874;
-    const variableToChange1 = -5000;
-    const variableToChange2 = 2784;
 
     
     const { cartItems } = useContext(CartContext);
+    const location = useLocation();
     const handleCompra = ()=> {
         alert("¡Gracias por tu compra!");
+
     };
+
+    const subtotal = location.state && location.state.subtotal ? location.state.subtotal : 0;
+    const discountAmount = location.state && location.state.discountAmount ? location.state.discountAmount : 0;
+    const total = location.state && location.state.total ? location.state.total : 0;
+    
+    
 
     return (
         <div>
@@ -44,9 +50,6 @@ const Checkout = () => {
                         <div className="word">Quantity</div>
                         <div className="word">Subtotal</div>
                     </div>   
-                <p>Product1</p>
-                <p>Product2</p>
-                <p>Product2</p> 
 
                 <div className="checkout-items">
                     {cartItems.map((item) => (
@@ -54,7 +57,7 @@ const Checkout = () => {
                         <img src={item.image} alt={item.description} className='smallimage'/>
                         <p className='itemtitle'>{item.product}</p>
                         <p className='itemprice'>$ {item.price}</p>
-                        <p className='itemquantity'>Quantity: {item.quantity}</p>
+                        <p className='itemquantity'>{item.quantity}</p>
                     </div> 
                         ))}
                 </div>
@@ -70,18 +73,18 @@ const Checkout = () => {
                 <div className="summary-item">
                     <span className="inside-resumen">Subtotal:</span>
                     <span className="summary-dots"></span>
-                    <span className="summary-value">12312</span>
+                    <span className="summary-value">{subtotal}</span>
                 </div>
                 <div className="summary-item">
                     <span className="inside-resumen">Descuentos:</span>
                     <span className="summary-dots"></span>
-                    <span className="summary-value">-1231</span>
+                    <span className="summary-value">{discountAmount}</span>
                 </div>
 
                 <div className="summary-item">
                     <span className="inside-resumen">Total:</span>
                     <span className="summary-dots"></span>
-                    <span className="summary-value">423984</span>
+                    <span className="summary-value">{total}</span>
                 </div>
                 
 </div>
