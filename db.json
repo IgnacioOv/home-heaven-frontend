@@ -47,7 +47,7 @@
       "price": "56000",
       "category": "DECORACIÓN",
       "seller": "Decoraciones Modernas S.A.",
-      "recommended": false,
+      "recommended": true,
       "id": 5
     },
     {
