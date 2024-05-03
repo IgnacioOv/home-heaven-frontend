@@ -1,17 +1,22 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './ShoppingCart.css';
 import { CartContext } from '../../context/CartProvider';
 import Counter from '../Counter/Counter';
 import trashIcon from '../../images/trash.png';
 
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = ({ closeCart }) => {
-    const { cartItems, incrementQuantity, decrementQuantity, removeItem,} = useContext(CartContext);
-    const [coupon, setCoupon] = useState('');
-    const [discount, setDiscount] = useState(0);
+    const { cartItems, incrementQuantity, decrementQuantity, removeItem } = useContext(CartContext);
+    const [coupon, setCoupon] = useState(localStorage.getItem('coupon') || '');
+    const [discount, setDiscount] = useState(parseFloat(localStorage.getItem('discount') || 0));
     const [showPopUp, setShowPopUp] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        localStorage.setItem('coupon', coupon);
+        localStorage.setItem('discount', discount.toString());
+    }, [coupon, discount]);
 
     const handleCouponChange = (e) => {
         setCoupon(e.target.value);
@@ -19,9 +24,9 @@ const ShoppingCart = ({ closeCart }) => {
 
     const applyCoupon = () => {
         if (coupon.toLowerCase() === "descuento50%") {
-            setDiscount(0.5); 
+            setDiscount(0.5);
         } else {
-            setDiscount(0); 
+            setDiscount(0);
         }
     };
 
@@ -29,15 +34,14 @@ const ShoppingCart = ({ closeCart }) => {
         console.log("Removing item", id);
         removeItem(id);
         setShowPopUp(true);
-        setTimeout(() => {setShowPopUp(false); }, 2000);
+        setTimeout(() => { setShowPopUp(false); }, 2000);
     };
-
 
     const subtotal = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
     const discountAmount = subtotal * discount;
     const total = subtotal - discountAmount;
 
-    if (cartItems.length === 0  && !showPopUp) {
+    if (cartItems.length === 0 && !showPopUp) {
         return (
             <div className="shopping-cart">
                 <div className="cart-header">
@@ -50,16 +54,17 @@ const ShoppingCart = ({ closeCart }) => {
             </div>
         );
     }
+
     const handleFinalizePurchase = () => {
-    navigate("/checkout", { 
-        state: { 
-            subtotal,
-            discountAmount,
-            total,
-        } 
-    });
-    window.scrollTo(0, 0);  // Scroll to the top of the page
-};
+        navigate("/checkout", {
+            state: {
+                subtotal,
+                discountAmount,
+                total,
+            }
+        });
+        window.scrollTo(0, 0);  // Scroll to the top of the page
+    };
 
     return (
         <div className="shopping-cart">
@@ -85,7 +90,7 @@ const ShoppingCart = ({ closeCart }) => {
                             </div>
                             <button onClick={() => handleRemoveItem(item.id)} className="delete-button">
                                 <img src={trashIcon} alt="Delete" />
-                                {showPopUp }
+                                {showPopUp}
                             </button>
                         </div>
                     ))}
@@ -94,7 +99,7 @@ const ShoppingCart = ({ closeCart }) => {
                     <div className="popupeliminado">
                         Producto eliminado del carrito ❌
                     </div>
-                    )}
+                )}
                 <div className="cart-footer">
                     <div className="subtotal-display">
                         Subtotal: ${subtotal.toFixed(2)}
