@@ -59,7 +59,9 @@ const ShoppingCart = ({ closeCart }) => {
                 total,
             } 
         });
+        window.scrollTo(0, 0);  // Scroll to the top of the page
     };
+    
     return (
         <div className="shopping-cart">
             <div className="cart-header">

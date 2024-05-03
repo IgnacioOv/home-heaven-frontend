@@ -1,7 +1,7 @@
 import React from 'react';
 import './Checkout.css';
 import { Link, useLocation } from 'react-router-dom'; // Importa Link desde react-router-dom
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { CartContext } from '../../context/CartProvider';
 
@@ -15,6 +15,10 @@ const Checkout = () => {
         alert("¡Gracias por tu compra!");
 
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);  // Scroll to the top of the page when the component mounts
+    }, []); 
 
     const subtotal = location.state && location.state.subtotal ? location.state.subtotal : 0;
     const discountAmount = location.state && location.state.discountAmount ? location.state.discountAmount : 0;
