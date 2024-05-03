@@ -131,6 +131,10 @@ margin-left: 3%;
     font-size: 0.7em;
     width: 100%; 
 }
+
+.apply-coupon-button:hover, .finalize-purchase-button:hover{
+    background-color: #5d7877; 
+}
 .coupon-section {
     display: flex;
     justify-content: space-between;
