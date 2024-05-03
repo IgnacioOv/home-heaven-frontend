@@ -47,12 +47,14 @@ const SearchResult = () => {
     return (
       <>
     <div className='search-container'>
+      <h1>Resultados de tu búsqueda</h1>
         <div className='cardscontainer'>
           {isLoading ? (
             <p>Loading products...</p>
           ) : error ? (
             <p>Error fetching products: {error}</p>
           ) : (
+            
             products.map((product) => (
               <Card key={product.id} product={product} />
             ))

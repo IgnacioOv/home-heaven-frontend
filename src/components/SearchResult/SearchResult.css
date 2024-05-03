@@ -1,6 +1,16 @@
 .cardscontainer{
-    margin-top:10%;
+    margin-top:1%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.search-container h1{
+    margin-top: 8%;
+    font-size: 1.5em;
+    display: flex;
+    color: #555B6E;
+    justify-content: center;
+    align-items: center;
+
 }
