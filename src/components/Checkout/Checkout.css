@@ -99,26 +99,28 @@
   }
 
 
-
-
-
-
-
-
   .checkout-items{
-    display: block;
+    display:flex;
+    margin-left: 4%;
+    flex-direction:column;
+    margin-right: 9%;
+   
+
+
 
   }
 
   .checkout-item{
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
     
   }
 
   .smallimage{
-    width: 20px;
-    height: 20px;
+    width: 10%;
+    height: 10%;
   }
 
 
@@ -130,3 +132,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
+
+
+
