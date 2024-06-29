@@ -1,12 +1,11 @@
+import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
-import ReactDOM from "react-dom/client";
 import Login from './components/Login/Login'; 
 import Register from './components/Register/Register'; 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ProductPage from './components/ProductPage/ProductPage';
 import Footer from './components/Footer/Footer';
-import { CartProvider } from './context/CartProvider';
 import CategoryPage from './components/CategoryPage/CategoryPage';
 import SearchResult from './components/SearchResult/SearchResult';
 import Checkout from './components/Checkout/Checkout';
@@ -14,12 +13,12 @@ import CategoriesBar from './components/CategoriesBar/CategoriesBar';
 import AddProductForm from './components/AddProduct/AddProduct';
 import HeaderAddProduct from './components/HeaderAddProduct/HeaderAddProduct';
 
+// No se necesita envolver con Provider devuelta porque se hace en el punto
+// de entrada principal osea en el main
 function App() {
   return (
-      <BrowserRouter>
-        <CartProvider> 
         <Routes>
-        <Route path="/" element={<> <Navbar /><CategoriesBar/> <Home /> <Footer /> </>} />
+          <Route path="/" element={<> <Navbar /><CategoriesBar/> <Home /> <Footer /> </>} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="product/:id" element={<><Navbar/><CategoriesBar/><ProductPage/><Footer /></>}/>
@@ -27,13 +26,8 @@ function App() {
           <Route path='search' element={<><Navbar /><CategoriesBar/><SearchResult/><Footer /></>} />
           <Route path="checkout" element={<><Navbar/><CategoriesBar/><Checkout/><Footer/> </>} />
           <Route path='addproduct' element={<><Navbar/><HeaderAddProduct></HeaderAddProduct><AddProductForm/><Footer/> </>} />
-        </Routes>
-        </CartProvider> 
-      </BrowserRouter>
-
+        </Routes> 
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
 export default App;

@@ -1,15 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../actions/cartActions';
 import './ProductPage.css';
 import CategoriesBar from '../CategoriesBar/CategoriesBar';
-import { CartContext } from '../../context/CartProvider';
+//import { CartContext } from '../../context/CartProvider';
 
 const ProductPage = () => {
   const { id } = useParams();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
+  //const { addToCart } = useContext(CartContext);
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
@@ -34,7 +37,8 @@ const ProductPage = () => {
 
   const handleAddToCart = () => {
     if (selectedProduct) {
-      addToCart(selectedProduct);
+      dispatch(addToCart(selectedProduct));
+      //addToCart(selectedProduct);
       console.log("Added to cart:", selectedProduct.id);
       setShowNotification(true);
       setTimeout(() => {

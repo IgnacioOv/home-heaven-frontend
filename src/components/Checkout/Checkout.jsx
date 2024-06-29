@@ -1,14 +1,13 @@
 import './Checkout.css';
 import { Link, useLocation} from 'react-router-dom'; 
-import { useContext, useEffect } from 'react';
-
-import { CartContext } from '../../context/CartProvider';
-
+import { useEffect } from 'react';
+//import { CartContext } from '../../context/CartProvider';
+import { useSelector } from 'react-redux';
 
 const Checkout = () => {
 
-    
-    const { cartItems } = useContext(CartContext);
+    //const { cartItems } = useContext(CartContext);
+    const cartItems = useSelector((state) => state.cart.cartItems);
     const location = useLocation();
 
 
@@ -94,7 +93,7 @@ const Checkout = () => {
 </div>
 
             <form className="formulario-chk" action="/" method="get">
-            <button onClick={handleCompra}>Realizar compra</button>
+                <button onClick={handleCompra}>Realizar compra</button>
             </form>
             <Link to="/" className="goBack" style={{color:'rgb(117,127,126,1)'}} >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" className="icon-submenu" fill="currentColor" >
@@ -102,19 +101,9 @@ const Checkout = () => {
                 </svg>
                 Seguir comprando
             </Link>
-</div>
-
-        
-
-    </div>
-
-
-
-
-
-
-
         </div>
+    </div>
+</div>
     );
 }
 

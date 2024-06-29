@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ShoppingCart.css';
 import { CartContext } from '../../context/CartProvider';
 import Counter from '../Counter/Counter';
@@ -6,8 +6,15 @@ import trashIcon from '../../images/trash.png';
 
 import { useNavigate } from "react-router-dom";
 
+import { useDispatch, useSelector } from 'react-redux';
+import { incrementQuantity, decrementQuantity, removeItem } from '../../actions/cartActions';
+
+
 const ShoppingCart = ({ closeCart }) => {
-    const { cartItems, incrementQuantity, decrementQuantity, removeItem } = useContext(CartContext);
+    const dispatch = useDispatch();
+    const cartItems = useSelector(state => state.cart.cartItems);
+
+   // const { cartItems, incrementQuantity, decrementQuantity, removeItem } = useContext(CartContext);
     const [coupon, setCoupon] = useState(localStorage.getItem('coupon') || '');
     const [discount, setDiscount] = useState(parseFloat(localStorage.getItem('discount') || 0));
     const [showPopUp, setShowPopUp] = useState(false);
@@ -30,12 +37,20 @@ const ShoppingCart = ({ closeCart }) => {
         }
     };
 
+    //const handleRemoveItem = (id) => {
+        ///console.log("Removing item", id);
+        //removeItem(id);
+        //setShowPopUp(true);
+        //setTimeout(() => { setShowPopUp(false); }, 2000);
+    //};
+
     const handleRemoveItem = (id) => {
         console.log("Removing item", id);
-        removeItem(id);
+        dispatch(removeItem(id));
         setShowPopUp(true);
         setTimeout(() => { setShowPopUp(false); }, 2000);
     };
+
 
     const subtotal = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
     const discountAmount = subtotal * discount;
@@ -66,6 +81,8 @@ const ShoppingCart = ({ closeCart }) => {
         window.scrollTo(0, 0);  // Scroll to the top of the page
     };
 
+
+    
     return (
         <div className="shopping-cart">
             <div className="cart-header">
@@ -83,8 +100,8 @@ const ShoppingCart = ({ closeCart }) => {
                                     <p className='itemprice'>$ {item.price * item.quantity}</p>
                                     <Counter 
                                         quantity={item.quantity}
-                                        increment={() => incrementQuantity(item.id)}
-                                        decrement={() => decrementQuantity(item.id)}
+                                        increment={() => dispatch(incrementQuantity(item.id))}
+                                        decrement={() => dispatch(decrementQuantity(item.id))}
                                     />
                                 </div>
                             </div>
@@ -128,5 +145,6 @@ const ShoppingCart = ({ closeCart }) => {
         </div>
     );
 };
+
 
 export default ShoppingCart;

@@ -1,11 +1,21 @@
-import React, { useState, useContext } from 'react';
+//Para usar redux, en lugar de context, necesitamos importar el hooks: useDispach
+//y despachar acciones a nuestro store de Redux.
+// 1. Importamos el hook useDipach para despachar acciones
+// 2. Despachar la accion addToCart, en lugar de usar addToCart del contexto, usamos la accion de redux
+
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Card.css';
-import { CartContext } from '../../context/CartProvider';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../actions/cartActions';
+//import React, { useState, useContext } from 'react';
+//import { CartContext } from '../../context/CartProvider';
+
 
 export const Card = ({ product }) => {
   const navigate = useNavigate();
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
+  //const { addToCart } = useContext(CartContext);
   const [showNotification, setShowNotification] = useState(false);
 
   const handleNavigate = () => {
@@ -14,7 +24,8 @@ export const Card = ({ product }) => {
 
   const handleAddToCart = (e) => {
     e.stopPropagation(); 
-    addToCart(product);
+    dispatch(addToCart(product));
+    //addToCart(product);
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);
