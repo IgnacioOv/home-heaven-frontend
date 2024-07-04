@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../Login/Login.css';
+import '../Register/Register.css';
 import logoImage from '../../images/homeHLogo.png';
 
 const Register = () => {
     
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [user_password, setPassword] = useState('');
+    const [first_name, setFirstName] = useState('');
+    const [last_name, setLastName] = useState('');
+    const [role, setRole] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault(); // Evitar que el formulario se envíe automáticamente
 
-        if (!username || !email || !password) {
+        if (!username || !email || !user_password || !role) {
             alert('Por favor, completa todos los campos.');
             return;
         }
-        
+        //const roleEnum = role === 'Comprador' ? 'BUYER' : 'SELLER'; see how to link w backend
+
+
         alert('Enviado. Gracias por formar parte de Home Deco!');
     };
 
@@ -40,21 +45,37 @@ const Register = () => {
 
 
                     
-                <form class="formulario" onSubmit={handleSubmit}>
-                    <div class= "wrap-input">
-                        <span class="form-text">USUARIO</span>
+                <form className="formulario" onSubmit={handleSubmit}>
+                <div className= "wrap-input">
+                        <span className="form-text">NOMBRE</span>
+                        <input type="text" placeholder='Ingrese su Nombre' value={first_name} onChange={(e) => setFirstName(e.target.value)}/>
+                    </div>
+                    <div className= "wrap-input">
+                        <span className="form-text">APELLIDO</span>
+                        <input type="text" placeholder='Ingrese su Apellido' value={last_name} onChange={(e) => setLastName(e.target.value)}/>
+                    </div>
+                    <div className= "wrap-input">
+                        <span className="form-text">USUARIO</span>
                         <input type="text" placeholder='Ingrese su usuario' value={username} onChange={(e) => setUsername(e.target.value)}/>
                     </div>
 
-                    <div class= "wrap-input">
-                        <span class="form-text" id="email">EMAIL</span>
+                    <div className= "wrap-input">
+                        <span className="form-text" id="email">EMAIL</span>
                         <input type="email" placeholder='example@example.com' value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
 
-                    <div class= "wrap-input">
-                        <span class="form-text">CONTRASEÑA</span>
-                        <input type="password" placeholder='**********' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <div className= "wrap-input">
+                        <span className="form-text">CONTRASEÑA</span>
+                        <input type="password" placeholder='**********' value={user_password} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
+                    <div className="wrap-input">
+                            <span className="form-text">ROL</span>
+                            <select value={role} onChange={(e) => setRole(e.target.value)}>
+                                <option value="">Seleccione su rol</option>
+                                <option value="Comprador">Comprador</option>
+                                <option value="Vendedor">Vendedor</option>
+                            </select>
+                        </div>
                     <button type="submit">Ir</button>
                 </form>
 
