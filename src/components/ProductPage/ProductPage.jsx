@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../actions/cartActions';
@@ -38,7 +38,6 @@ const ProductPage = () => {
   const handleAddToCart = () => {
     if (selectedProduct) {
       dispatch(addToCart(selectedProduct));
-      //addToCart(selectedProduct);
       console.log("Added to cart:", selectedProduct.id);
       setShowNotification(true);
       setTimeout(() => {

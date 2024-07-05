@@ -11,7 +11,9 @@ import Checkout from './components/Checkout/Checkout';
 import CategoriesBar from './components/CategoriesBar/CategoriesBar';
 import AddProductForm from './components/AddProduct/AddProduct';
 import HeaderAddProduct from './components/HeaderAddProduct/HeaderAddProduct';
-
+import UserPage from './components/UserPage/UserPage';
+import HeaderUser from './components/HeaderUser/HeaderUser';
+import Orders from './components/Order/Orders';
 // No se necesita envolver con Provider devuelta porque se hace en el punto
 // de entrada principal osea en el main
 function App() {
@@ -19,7 +21,9 @@ function App() {
         <Routes>
           <Route path="/" element={<> <Navbar /><CategoriesBar/> <Home /> <Footer /> </>} />
           <Route path="login" element={<Login />} />
+          <Route path="userpage" element={<><Navbar/><UserPage/><Footer/></>} />
           <Route path="register" element={<Register />} />
+          <Route path="myorders" element={<Orders />} />
           <Route path="product/:id" element={<><Navbar/><CategoriesBar/><ProductPage/><Footer /></>}/>
           <Route path="/category/:categoryName" element={<><CategoryPage /> <Footer/> </>} />                                      
           <Route path='search' element={<><Navbar /><CategoriesBar/><SearchResult/><Footer /></>} />

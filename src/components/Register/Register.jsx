@@ -13,7 +13,7 @@ const Register = () => {
     const [role, setRole] = useState('');
 
     const handleSubmit = (event) => {
-        event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+        event.preventDefault(); 
 
         if (!username || !email || !user_password || !role) {
             alert('Por favor, completa todos los campos.');

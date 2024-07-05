@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate  } from 'react-router-dom'; 
 import { useState } from 'react';
 import './Login.css';
 import logoImage from '../../images/homeHLogo.png';
@@ -7,6 +7,7 @@ const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -15,7 +16,7 @@ const Login = () => {
             return;
         }
         
-        alert('Enviado. Gracias por formar parte de Home Deco!');
+        navigate('/userpage');
     };
 
     return (
