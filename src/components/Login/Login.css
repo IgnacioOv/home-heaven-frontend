@@ -36,6 +36,10 @@
   height: 98vh;
 }
 
+.login-container h3{
+  margin-left: 30%;
+  font-size: 1.2em;
+}
 .zen-kaku-gothic-antique-regular {
   font-family: "Zen Kaku Gothic Antique", sans-serif;
   font-weight: 400;

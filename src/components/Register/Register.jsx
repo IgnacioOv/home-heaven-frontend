@@ -1,8 +1,7 @@
 import  { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../Register/Register.css';
 import logoImage from '../../images/homeHLogo.png';
-
 const Register = () => {
     
     const [username, setUsername] = useState('');
@@ -11,6 +10,7 @@ const Register = () => {
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
     const [role, setRole] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
@@ -22,7 +22,7 @@ const Register = () => {
         //const roleEnum = role === 'Comprador' ? 'BUYER' : 'SELLER'; see how to link w backend
 
 
-        alert('Enviado. Gracias por formar parte de Home Deco!');
+        navigate('/login');
     };
 
 
