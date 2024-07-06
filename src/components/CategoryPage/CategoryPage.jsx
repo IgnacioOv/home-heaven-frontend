@@ -11,18 +11,31 @@ function CategoryPage() {
   const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const itemsPerPage = 8;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/products`)
-      .then(res => res.json())
-      .then(data => {
-        if (categoryName.toUpperCase() === 'TODOS') {
-          setProducts(data);
-        } else {
-          setProducts(data.filter(product => product.category === categoryName));
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(`http://localhost:8080/products/category/${categoryName}`,
+        
+          { headers: { 'Content-Type': 'application/json' },method: 'GET'}
+        );
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
         }
-      });
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, [categoryName]);
 
   const totalProducts = products.length;

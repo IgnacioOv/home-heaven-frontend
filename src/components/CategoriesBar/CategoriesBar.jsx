@@ -6,7 +6,7 @@ const CategoriesBar = () => {
     return (
         <>
         <ul className='categories-bar'>
-            <li className='category'><Link to="/category/TODOS" className="category-css">TODOS</Link></li>
+            <li className='category'><Link to="/category/ALL" className="category-css">TODOS</Link></li>
             <li className='category'><Link to="/category/BAÑO" className="category-css">BAÑO</Link></li>
             <li className='category'><Link to="/category/COCINA" className="category-css">COCINA</Link></li>
             <li className='category'><Link to="/category/DECORACIÓN" className="category-css">DECORACIÓN</Link></li>

@@ -19,7 +19,10 @@ const ProductPage = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:3000/products/${id}`);
+        const response = await fetch(`http://localhost:8080/products/${id}`,
+        
+          { headers: { 'Content-Type': 'application/json' },method: 'GET'}
+        );
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);
         }
@@ -47,6 +50,7 @@ const ProductPage = () => {
   };
 
   return (
+    console.log(selectedProduct),
     <div className="product-page">
       <CategoriesBar />
       {showNotification && (
@@ -62,12 +66,12 @@ const ProductPage = () => {
         <div className="product-content">
           <img
             className="product-image"
-            src={selectedProduct.image}
-            alt={selectedProduct.name}
+            src={selectedProduct.imageUrl}
+            alt={selectedProduct.productName}
           />
           <div>
-            <h2 className="product-name">{selectedProduct.product}</h2>
-            <p className="product-description">{selectedProduct.description}</p>
+            <h2 className="product-name">{selectedProduct.productName}</h2>
+            <p className="product-description">{selectedProduct.productDescription}</p>
             <p className="product-price">${selectedProduct.price}</p>
             <button className="add-to-cart-button" onClick={handleAddToCart}>Añadir al carrito</button>
           </div>

@@ -19,7 +19,7 @@ export const Card = ({ product }) => {
   const [showNotification, setShowNotification] = useState(false);
 
   const handleNavigate = () => {
-    navigate(`/product/${product.id}`);
+    navigate(`/product/${product.productId}`);
   };
 
   const handleAddToCart = (e) => {
@@ -30,15 +30,15 @@ export const Card = ({ product }) => {
     setTimeout(() => {
       setShowNotification(false);
     }, 2000); 
-    console.log("Added to cart:", product.id);
+  
   };
 
   return (
     <>
     <div className="card-container" onClick={handleNavigate}>
       {showNotification }
-      <img src={product.image} alt={product.description} className="card-img" />
-      <p className="card-title">{product.product}</p>
+      <img src={product.imageUrl} alt={product.productDescription} className="card-img" />
+      <p className="card-title">{product.productName}</p>
       <p className="card-price">{"$" + product.price}</p>
       <button className="card-button" onClick={handleAddToCart}>Agregar</button>
     </div>
