@@ -19,10 +19,12 @@ function CategoryPage() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:8080/products/category/${categoryName}`,
-        
-          { headers: { 'Content-Type': 'application/json' },method: 'GET'}
-        );
+          const url = categoryName === 'all' ? 'http://localhost:8080/products/stock' : `http://localhost:8080/products/category/${categoryName}`;
+
+          const response = await fetch(url, {
+              headers: { 'Content-Type': 'application/json' },
+              method: 'GET'
+          });
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);
         }

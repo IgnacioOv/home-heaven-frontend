@@ -17,7 +17,7 @@ const Home = () => {
 
 
     const goToTodosAndTop = useCallback(() => {
-        navigate('/category/TODOS');
+        navigate('/category/all');
         window.scrollTo({ top: 0, behavior: 'smooth' }); 
     }, [navigate]);
 

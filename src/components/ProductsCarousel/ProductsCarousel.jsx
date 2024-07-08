@@ -11,20 +11,20 @@ const ProductsCarousel = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("http://localhost:3000/products");
+        const response = await fetch("http://localhost:8080/productOrder/recommended");
         if (!response.ok) {
           throw new Error(`API request failed with status ${response.status}`);
         }
         const data = await response.json();
-        const products = data.filter((product) => product.recommended === true)
-        setProducts(products);
+      
+      
+        setProducts(data);
       } catch (error) {
         setError(error.message);
       } finally {
         setIsLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
@@ -34,6 +34,8 @@ const ProductsCarousel = () => {
         <p>Loading products...</p>
       ) : error ? (
         <p>Error fetching products: {error}</p>
+      ) : products.length === 0 ? (
+        <p>No recommended products available</p>
       ) : (
         products.map((product) => (
           <Card key={product.id} product={product} />
@@ -41,6 +43,6 @@ const ProductsCarousel = () => {
       )}
     </div>
   );
-};
+};  
   
 export default ProductsCarousel;
