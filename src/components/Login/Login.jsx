@@ -1,22 +1,45 @@
 import { Link, useNavigate  } from 'react-router-dom'; 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import logoImage from '../../images/homeHLogo.png';
 
 const Login = () => {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [user_password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (!username || !password) {
+        if (!email || !user_password) {
             alert('Por favor, completa todos los campos.');
             return;
         }
-        
-        navigate('/userpage');
+        try {
+            const response = await fetch('http://localhost:8080/users/authenticate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    userPassword: user_password,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error al iniciar sesión: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            // Guardar el token JWT en el localStorage o en una cookie
+            localStorage.setItem('accessToken', data.accessToken);
+
+            navigate('/userpage'); // Redirige a la página del usuario si la autenticación es exitosa
+
+        } catch (error) {
+            alert(`Error: ${error.message}`);
+        }
     };
 
     return (
@@ -40,14 +63,14 @@ const Login = () => {
                     
             <form className="formulario" onSubmit={handleSubmit}>
                 <div className= "wrap-input">
-                    <span className="form-text">USUARIO</span>
-                    <input type="text" placeholder='Ingrese su usuario' value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <span className="form-text">EMAIL</span>
+                    <input type="text" placeholder='Ingrese su email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
 
     
                 <div className= "wrap-input">
                     <span className="form-text">CONTRASEÑA</span>
-                    <input type="password" placeholder='Ingrese su contraseña' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input type="password" placeholder='Ingrese su contraseña' value={user_password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <button type="submit">Ir</button>
             </form>
