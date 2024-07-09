@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Register/Register.css';
 import logoImage from '../../images/homeHLogo.png';
@@ -12,17 +12,41 @@ const Register = () => {
     const [role, setRole] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault(); 
 
         if (!username || !email || !user_password || !role) {
             alert('Por favor, completa todos los campos.');
             return;
         }
-        //const roleEnum = role === 'Comprador' ? 'BUYER' : 'SELLER'; see how to link w backend
+        const roleEnum = role === 'Comprador' ? 'BUYER' : 'SELLER';
+        try {
+            //const token = localStorage.getItem('accessToken'); // Obtén el token JWT del localStorage
 
+            const response = await fetch('http://localhost:8080/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    //'Authorization': `Bearer ${token}` // Incluye el token JWT en el encabezado Authorization
+                },
+                body: JSON.stringify({
+                    firstname: first_name,
+                    lastname: last_name,
+                    username: username,
+                    email: email,
+                    userPassword: user_password,
+                    role: roleEnum 
+                })
+            });
 
-        navigate('/login');
+            if (!response.ok) {
+                throw new Error(`Error al registrar: ${response.statusText}`);
+            }
+
+            navigate('/login'); // Redirige a la página de inicio de sesión si el registro es exitoso
+        } catch (error) {
+            alert(`Error: ${error.message}`);
+        }
     };
 
 
