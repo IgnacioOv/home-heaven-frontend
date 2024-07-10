@@ -33,7 +33,7 @@ const Login = () => {
 
             const data = await response.json();
             // Guardar el token JWT en el localStorage o en una cookie
-            localStorage.setItem('accessToken', data.accessToken);
+            localStorage.setItem('accessToken', data.access_token);
 
             navigate('/userpage'); // Redirige a la página del usuario si la autenticación es exitosa
 
