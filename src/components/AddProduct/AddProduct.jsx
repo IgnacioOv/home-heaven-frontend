@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import './AddProduct.css';
+import { jwtDecode } from 'jwt-decode';
+
+const token = localStorage.getItem('accessToken');
+const decodedToken = jwtDecode(token);
+console.log(decodedToken.userId);
 
 function AddProductForm() {
   const [product, setProduct] = useState({
-    product: '',
-    image: '',
-    description: '',
+    productName: '',
+    imageUrl: '',
+    productDescription: '',
     price: '',
     category: '',
-    seller: '',
-    recommended: false
+    stock: '',
+    sellerId:decodedToken.userId
   });
+
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -19,56 +26,68 @@ function AddProductForm() {
       [name]: type === 'checkbox' ? checked : value
     }));
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!product.product || !product.image || !product.description || !product.price || !product.category || !product.seller) {
+    if (!product.productName || !product.imageUrl || !product.productDescription || !product.price || !product.category || !product.stock) {
         alert('Por favor llene el formulario correctamente!');
         return;  
       }
 
+      //decode jwt
+
     try {
-      const response = await fetch('http://localhost:3000/products', {
+      const response = await fetch('http://localhost:8080/products/add', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('accessToken') ,
         },
         body: JSON.stringify(product)
+        
       });
       if (response.ok) {
         alert('Producto añadido correctamente!');
         setProduct({
-          product: '',
-          image: '',
-          description: '',
+          productName: '',
+          imageUrl: '',
+          productDescription: '',
           price: '',
           category: '',
-          seller: '',
-          recommended: false
+          sellerId: decodedToken.userId,
         });
       }
     } catch (error) {
-      console.error('Failed to add product:', error);
+      alert('Error al añadir el producto');
     }
   };
 
-  const categories = ["BAÑO", "COCINA", "DECORACIÓN", "DORMITORIO", "LIVING"];
+
+
+  const categories = {
+    "bathroom": "BAÑO",
+    "kitchen": "COCINA",
+    "decoration": "DECORACIÓN",
+    "bedroom": "DORMITORIO",
+    "living": "LIVING"
+  };
+  
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form">
         <div className="form-group">
-          <label htmlFor="product">Producto:</label>
-          <input type="text" id="product" name="product" value={product.product} onChange={handleChange} />
+          <label htmlFor="productName">Producto:</label>
+          <input type="text" id="productName" name="productName" value={product.productName} onChange={handleChange} />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Imagen URL:</label>
-          <input type="text" id="image" name="image" value={product.image} onChange={handleChange} />
+          <label htmlFor="imageUrl">Imagen URL:</label>
+          <input type="text" id="imageUrl" name="imageUrl" value={product.imageUrl} onChange={handleChange} />
         </div>
         <div className="form-group">
-          <label htmlFor="description">Descripción:</label>
-          <input type= "text" id="description" name="description" value={product.description} onChange={handleChange} ></input>
+          <label htmlFor="productDescription">Descripción:</label>
+          <input type= "text" id="productDescription" name="productDescription" value={product.productDescription} onChange={handleChange} ></input>
         </div>
         <div className="form-group">
           <label htmlFor="price">Precio:</label>
@@ -77,21 +96,15 @@ function AddProductForm() {
         <div className="form-group">
         <label htmlFor="category">Categoría:</label>
         <select id="category" name="category" value={product.category} onChange={handleChange}>
-            <option value="">Select a category</option>
-            {categories.map((category, index) => (
-            <option key={index} value={category}>{category}</option>
-            ))}
+          <option value="">Select a category</option>
+          {Object.entries(categories).map(([key, value]) => (
+            <option key={key} value={key}>{value}</option>
+          ))}
         </select>
         </div>
         <div className="form-group">
-          <label htmlFor="seller">Vendedor:</label>
-          <input type="text" id="seller" name="seller" value={product.seller} onChange={handleChange} />
-        </div>
-        <div className="form-group checkbox-group">
-        <label htmlFor="recommended" className="checkbox-label">
-        Recomendado:
-            <input type="checkbox" id="recommended" name="recommended" checked={product.recommended} onChange={handleChange} />
-        </label>
+          <label htmlFor="seller">Stock:</label>
+          <input type="text" id="stock" name="stock" value={product.stock} onChange={handleChange} />
         </div>
         <div className="form-group">
           <button type="submit">Añadir Producto</button>
