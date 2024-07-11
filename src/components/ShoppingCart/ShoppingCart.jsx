@@ -93,9 +93,9 @@ const ShoppingCart = ({ closeCart }) => {
                 <div className="cart-items">
                     {cartItems.map((item) => (
                         <div key={item.id} className="cart-item">
-                            <img src={item.image} alt={item.description} className='itemimage'/>
+                            <img src={item.imageUrl} alt={item.description} className='itemimage'/>
                             <div className="item-details">
-                                <p className='itemtitle'>{item.product}</p>
+                                <p className='itemtitle'>{item.productName}</p>
                                 <div className="counter-and-price">
                                     <p className='itemprice'>$ {item.price * item.quantity}</p>
                                     <Counter 
