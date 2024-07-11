@@ -80,7 +80,7 @@ const Checkout = () => {
                 <div className="checkout-items">
                     {cartItems.map((item) => (
                     <div key={item.id} className="checkout-item">
-                        <img src={item.imageUrl} alt={item.description} className='smallimage'/>
+                        <img src={item.imageUrl} alt={item.productDescription} className='smallimage'/>
                         <p className='itemtitle'>{item.productName}</p>
                         <p className='itemquantity'>{item.quantity}</p>
                         <p className='itemprice'>$ {item.price}</p>
