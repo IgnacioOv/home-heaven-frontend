@@ -71,10 +71,10 @@ const Checkout = () => {
             <div className ="chk-wrapper">
                 <div className="tabla">
                     <div className="columnas">
+                        <div className="word"></div>
                         <div className="word">Product</div>
-                        <div className="word">Price</div>
                         <div className="word">Quantity</div>
-                        <div className="word">Subtotal</div>
+                        <div className="word">Price</div>
                     </div>   
 
                 <div className="checkout-items">
