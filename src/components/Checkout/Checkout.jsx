@@ -3,16 +3,39 @@ import { Link, useLocation} from 'react-router-dom';
 import { useEffect } from 'react';
 //import { CartContext } from '../../context/CartProvider';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import React, {useState} from 'react';
 
 const Checkout = () => {
-
     //const { cartItems } = useContext(CartContext);
     const cartItems = useSelector((state) => state.cart.cartItems);
     const location = useLocation();
+    const dispatch = useDispatch();
 
-
-    const handleCompra = ()=> {
+   /* const handleCompra = ()=> {
         alert("¡Gracias por tu compra!");
+    }; */
+    const handleCompra = async () => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cartItems.map(item => ({
+                product: { productId: item.id }, // Ajusta según tu estructura de datos
+                quantity: item.quantity
+            })))
+        };
+
+        try {
+            const response = await fetch('http://localhost:8080/orders/add', requestOptions);
+            if (!response.ok) {
+                throw new Error('Error al procesar la orden');
+            }
+            alert('¡Gracias por tu compra!');
+            // Puedes redirigir al usuario a una página de confirmación o a la página de inicio
+        } catch (error) {
+            console.error('Error al procesar la orden:', error.message);
+            // Manejar errores como prefieras (mostrar mensaje al usuario, etc.)
+        }
     };
 
     useEffect(() => {
@@ -57,8 +80,8 @@ const Checkout = () => {
                 <div className="checkout-items">
                     {cartItems.map((item) => (
                     <div key={item.id} className="checkout-item">
-                        <img src={item.image} alt={item.description} className='smallimage'/>
-                        <p className='itemtitle'>{item.product}</p>
+                        <img src={item.imageUrl} alt={item.description} className='smallimage'/>
+                        <p className='itemtitle'>{item.productName}</p>
                         <p className='itemquantity'>{item.quantity}</p>
                         <p className='itemprice'>$ {item.price}</p>
                     </div> 
