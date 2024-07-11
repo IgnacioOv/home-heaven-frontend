@@ -72,9 +72,9 @@ const Checkout = () => {
                 <div className="tabla">
                     <div className="columnas">
                         <div className="word"></div>
-                        <div className="word">Product</div>
-                        <div className="word">Quantity</div>
-                        <div className="word">Price</div>
+                        <div className="word">Producto</div>
+                        <div className="word">Cantidad</div>
+                        <div className="word">Precio</div>
                     </div>   
 
                 <div className="checkout-items">
