@@ -64,8 +64,8 @@ function CategoryPage() {
         <CategoriesBar />
         <HeaderCategory categoryName={categoryName} />
         <div className="category-grid">
-          {currentItems.map(product => (
-            <Card key={product.id} product={product} />
+          {currentItems.map((product,index) => (
+            <Card key={index} product={product} />
           ))}
         </div>
         <nav className="pagination">

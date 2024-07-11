@@ -37,8 +37,8 @@ const ProductsCarousel = () => {
       ) : products.length === 0 ? (
         <p>No recommended products available</p>
       ) : (
-        products.map((product) => (
-          <Card key={product.id} product={product} />
+        products.map((product,index) => (
+          <Card key={index} product={product} />
         ))
       )}
     </div>

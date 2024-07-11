@@ -12,12 +12,14 @@ const UserPage = () => {
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
 
-    const [isEditingName, setIsEditingName] = useState(false);
-    const [isEditingSurname, setIsEditingSurname] = useState(false);
-    const [isEditingUsername, setIsEditingUsername] = useState(false);
-    const [isEditingEmail, setIsEditingEmail] = useState(false);
-    const [isEditingPassword, setIsEditingPassword] = useState(false);
-    const [isEditingRole, setIsEditingRole] = useState(false);
+    const [isEditing, setIsEditing] = useState({
+        name: false,
+        surname: false,
+        username: false,
+        email: false,
+        password: false,
+        role: false
+    });
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -25,25 +27,21 @@ const UserPage = () => {
             if (token) {
                 try {
                     const decodedToken = jwtDecode(token);
-                    console.log(token); // Verifica los datos del token decodificado
                     const response = await fetch(`http://localhost:8080/users/${decodedToken.userId}`, {
                         method: 'GET',
                         headers: {
-                            
                             'Access-Control-Allow-Origin': 'http://localhost:5173',
-                            'Access-Control-Request-Method' : 'GET',
+                            'Access-Control-Request-Method': 'GET',
                             'Content-Type': 'application/json',
                             Authorization: `Bearer ${token}`,
                         },
-                        
                     });
-                    
+
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
 
                     const userData = await response.json();
-                    console.log(userData); // Verifica los datos del usuario obtenidos
 
                     setName(userData.firstName);
                     setSurname(userData.lastName);
@@ -60,52 +58,53 @@ const UserPage = () => {
         fetchUserData();
     }, []);
 
-    const handleEditName = () => {
-        setIsEditingName(true);
+    const handleEdit = (field) => {
+        setIsEditing({ ...isEditing, [field]: true });
     };
 
-    const handleSaveName = () => {
-        setIsEditingName(false);
-    };
+    const handleSave = async () => {
+        const token = localStorage.getItem('accessToken');
+        if (token) {
+            const decodedToken = jwtDecode(token);
+            const updatedUser = {
+                userId: decodedToken.userId,
+                firstName: name,
+                lastName: surname,
+                username: username,
+                email: email,
+                password: password,
+                role: role,
+            };
 
-    const handleEditSurname = () => {
-        setIsEditingSurname(true);
-    };
+            try {
+                const response = await fetch(`http://localhost:8080/users/edit`, {
+                    method: 'PUT',
+                    headers: {
+                        'Access-Control-Allow-Origin': 'http://localhost:5173',
+                        'Access-Control-Request-Method': 'PUT',
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(updatedUser),
+                });
 
-    const handleSaveSurname = () => {
-        setIsEditingSurname(false);
-    };
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
 
-    const handleEditUsername = () => {
-        setIsEditingUsername(true);
-    };
-
-    const handleSaveUsername = () => {
-        setIsEditingUsername(false);
-    };
-
-    const handleEditEmail = () => {
-        setIsEditingEmail(true);
-    };
-
-    const handleSaveEmail = () => {
-        setIsEditingEmail(false);
-    };
-
-    const handleEditPassword = () => {
-        setIsEditingPassword(true);
-    };
-
-    const handleSavePassword = () => {
-        setIsEditingPassword(false);
-    };
-
-    const handleEditRole = () => {
-        setIsEditingRole(true);
-    };
-
-    const handleSaveRole = () => {
-        setIsEditingRole(false);
+                // Aquí podrías actualizar el estado de edición para todos los campos a false
+                setIsEditing({
+                    name: false,
+                    surname: false,
+                    username: false,
+                    email: false,
+                    password: false,
+                    role: false
+                });
+            } catch (error) {
+                console.error('Error updating user data', error);
+            }
+        }
     };
 
     return (
@@ -116,7 +115,7 @@ const UserPage = () => {
                 <div className="user-info">
                     <div className="field">
                         <label htmlFor="name">Nombre:</label>
-                        {isEditingName ? (
+                        {isEditing.name ? (
                             <input
                                 type="text"
                                 id="name"
@@ -126,15 +125,15 @@ const UserPage = () => {
                         ) : (
                             <span>{name}</span>
                         )}
-                        {isEditingName ? (
-                            <button onClick={handleSaveName}>Guardar</button>
+                        {isEditing.name ? (
+                            <button onClick={handleSave}>Guardar</button>
                         ) : (
-                            <button onClick={handleEditName}>Modificar</button>
+                            <button onClick={() => handleEdit('name')}>Modificar</button>
                         )}
                     </div>
                     <div className="field">
                         <label htmlFor="surname">Apellido:</label>
-                        {isEditingSurname ? (
+                        {isEditing.surname ? (
                             <input
                                 type="text"
                                 id="surname"
@@ -144,15 +143,15 @@ const UserPage = () => {
                         ) : (
                             <span>{surname}</span>
                         )}
-                        {isEditingSurname ? (
-                            <button onClick={handleSaveSurname}>Guardar</button>
+                        {isEditing.surname ? (
+                            <button onClick={handleSave}>Guardar</button>
                         ) : (
-                            <button onClick={handleEditSurname}>Modificar</button>
+                            <button onClick={() => handleEdit('surname')}>Modificar</button>
                         )}
                     </div>
                     <div className="field">
                         <label htmlFor="username">Username:</label>
-                        {isEditingUsername ? (
+                        {isEditing.username ? (
                             <input
                                 type="text"
                                 id="username"
@@ -162,15 +161,15 @@ const UserPage = () => {
                         ) : (
                             <span>{username}</span>
                         )}
-                        {isEditingUsername ? (
-                            <button onClick={handleSaveUsername}>Guardar</button>
+                        {isEditing.username ? (
+                            <button onClick={handleSave}>Guardar</button>
                         ) : (
-                            <button onClick={handleEditUsername}>Modificar</button>
+                            <button onClick={() => handleEdit('username')}>Modificar</button>
                         )}
                     </div>
                     <div className="field">
                         <label htmlFor="email">Email:</label>
-                        {isEditingEmail ? (
+                        {isEditing.email ? (
                             <input
                                 type="email"
                                 id="email"
@@ -180,15 +179,15 @@ const UserPage = () => {
                         ) : (
                             <span>{email}</span>
                         )}
-                        {isEditingEmail ? (
-                            <button onClick={handleSaveEmail}>Guardar</button>
+                        {isEditing.email ? (
+                            <button onClick={handleSave}>Guardar</button>
                         ) : (
-                            <button onClick={handleEditEmail}>Modificar</button>
+                            <button onClick={() => handleEdit('email')}>Modificar</button>
                         )}
                     </div>
                     <div className="field">
                         <label htmlFor="password">Contraseña:</label>
-                        {isEditingPassword ? (
+                        {isEditing.password ? (
                             <input
                                 type="password"
                                 id="password"
@@ -196,32 +195,32 @@ const UserPage = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         ) : (
-                            <span>{password}</span>
+                            <span>******</span>
                         )}
-                        {isEditingPassword ? (
-                            <button onClick={handleSavePassword}>Guardar</button>
+                        {isEditing.password ? (
+                            <button onClick={handleSave}>Guardar</button>
                         ) : (
-                            <button onClick={handleEditPassword}>Modificar</button>
+                            <button onClick={() => handleEdit('password')}>Modificar</button>
                         )}
                     </div>
                     <div className="field">
                         <label htmlFor="role">Rol:</label>
-                        {isEditingRole ? (
+                        {isEditing.role ? (
                             <select
                                 id="role"
                                 value={role}
                                 onChange={(e) => setRole(e.target.value)}
                             >
-                                <option value="Comprador">Comprador</option>
-                                <option value="Vendedor">Vendedor</option>
+                                <option value="BUYER">Comprador</option>
+                                <option value="SELLER">Vendedor</option>
                             </select>
                         ) : (
                             <span>{role}</span>
                         )}
-                        {isEditingRole ? (
-                            <button onClick={handleSaveRole}>Guardar</button>
+                        {isEditing.role ? (
+                            <button onClick={handleSave}>Guardar</button>
                         ) : (
-                            <button onClick={handleEditRole}>Modificar</button>
+                            <button onClick={() => handleEdit('role')}>Modificar</button>
                         )}
                     </div>
                 </div>
