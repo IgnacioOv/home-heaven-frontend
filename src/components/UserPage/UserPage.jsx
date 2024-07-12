@@ -8,12 +8,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/authActions';
 
-
 const UserPage = () => {
     const dispatch = useDispatch();
-    const isAuthenticated = useSelector(state=> state.auth.isAuthenticated);
-   
-    
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [username, setUsername] = useState('');
@@ -56,7 +54,6 @@ const UserPage = () => {
                     setSurname(userData.lastName);
                     setUsername(userData.username);
                     setEmail(userData.email);
-                    setPassword(userData.password);
                     setRole(userData.role);
                 } catch (error) {
                     console.error('Error fetching user data', error);
@@ -81,8 +78,9 @@ const UserPage = () => {
                 lastName: surname,
                 username: username,
                 email: email,
-                password: password,
                 role: role,
+                // Solo enviar la contraseña si se está editando
+                password: isEditing.password ? password : null,
             };
 
             try {
@@ -97,7 +95,6 @@ const UserPage = () => {
                     throw new Error('Network response was not ok');
                 }
 
-                // Aquí podrías actualizar el estado de edición para todos los campos a false
                 setIsEditing({
                     name: false,
                     surname: false,
@@ -112,9 +109,9 @@ const UserPage = () => {
         }
     };
 
-    const handleLogout = ()=>{
+    const handleLogout = () => {
         dispatch(logout());
-    }
+    };
 
     return (
         <>
@@ -239,12 +236,13 @@ const UserPage = () => {
                     <button className="role-button">
                         {role === 'BUYER' ? 'VER COMPRAS' : 'VER COMPRAS'}
                     </button>
-                </Link >
+                </Link>
                 <div className='space'></div>
                 {role === 'SELLER' && (
-                <Link to="/myorders">
+                    <Link to="/myorders">
                         <button className="role-button">VER VENTAS</button>
-                </Link>)}
+                    </Link>
+                )}
                 <div className='space'></div>
                 <Link to="/">
                     <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
