@@ -13,6 +13,7 @@ import { incrementQuantity, decrementQuantity, removeItem } from '../../actions/
 const ShoppingCart = ({ closeCart }) => {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart.cartItems);
+    console.log(cartItems)
 
    // const { cartItems, incrementQuantity, decrementQuantity, removeItem } = useContext(CartContext);
     const [coupon, setCoupon] = useState(localStorage.getItem('coupon') || '');
@@ -36,13 +37,6 @@ const ShoppingCart = ({ closeCart }) => {
             setDiscount(0);
         }
     };
-
-    //const handleRemoveItem = (id) => {
-        ///console.log("Removing item", id);
-        //removeItem(id);
-        //setShowPopUp(true);
-        //setTimeout(() => { setShowPopUp(false); }, 2000);
-    //};
 
     const handleRemoveItem = (id) => {
         console.log("Removing item", id);
@@ -100,12 +94,12 @@ const ShoppingCart = ({ closeCart }) => {
                                     <p className='itemprice'>$ {item.price * item.quantity}</p>
                                     <Counter 
                                         quantity={item.quantity}
-                                        increment={() => dispatch(incrementQuantity(item.id))}
-                                        decrement={() => dispatch(decrementQuantity(item.id))}
+                                        increment={() => dispatch(incrementQuantity(item.productId))}
+                                        decrement={() => dispatch(decrementQuantity(item.productId))}
                                     />
                                 </div>
                             </div>
-                            <button onClick={() => handleRemoveItem(item.id)} className="delete-button">
+                            <button onClick={() => handleRemoveItem(item.productId)} className="delete-button">
                                 <img src={trashIcon} alt="Delete" />
                                 {showPopUp}
                             </button>

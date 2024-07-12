@@ -8,10 +8,13 @@ import filterPhone from '../../images/VectorfilterPhone2.png';
 import cartPhone from '../../images/VectorcarritoPhone.png';
 import { Link, useNavigate } from 'react-router-dom';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';  
+import { useSelector } from 'react-redux'; 
 
 const Navbar = () => {
     const [input, setinput] = useState("");
     const navigate = useNavigate();
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+    
     
 
     const handleChange = (value) => {
@@ -41,7 +44,7 @@ const Navbar = () => {
                     <input type="image" src={searchLogo} alt="Submit" className='searchLogo' />    
                 </form>
                 <div className="logos">
-                    <Link to="/login">
+                    <Link to={isAuthenticated ? "/userpage" : "/login"}>
                         <img src={profileLogo} alt="Profile" className='profileLogo' />
                     </Link>
                     <img src={cartLogo} alt="Cart" className='cartLogo' onClick={toggleCart} />
