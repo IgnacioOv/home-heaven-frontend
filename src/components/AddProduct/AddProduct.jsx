@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './AddProduct.css';
 import { jwtDecode } from 'jwt-decode';
+import { fetchWithAuth } from '../utils/fetchWithAuth';
 
-const token = localStorage.getItem('accessToken');
-const decodedToken = jwtDecode(token);
-console.log(decodedToken.userId);
+
+
 
 function AddProductForm() {
+  const token = localStorage.getItem('accessToken');
+  const decodedToken = jwtDecode(token);
   const [product, setProduct] = useState({
     productName: '',
     imageUrl: '',
@@ -37,16 +39,14 @@ function AddProductForm() {
 
       //decode jwt
 
-    try {
-      const response = await fetch('http://localhost:8080/products/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + localStorage.getItem('accessToken') ,
-        },
-        body: JSON.stringify(product)
-        
-      });
+      try {
+        const response = await fetchWithAuth('http://localhost:8080/products/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        });
       if (response.ok) {
         alert('Producto añadido correctamente!');
         setProduct({
