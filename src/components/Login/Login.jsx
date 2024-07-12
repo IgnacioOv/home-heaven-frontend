@@ -2,12 +2,15 @@ import { Link, useNavigate  } from 'react-router-dom';
 import React, { useState } from 'react';
 import './Login.css';
 import logoImage from '../../images/homeHLogo.png';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../actions/authActions';
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [user_password, setPassword] = useState('');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -32,8 +35,8 @@ const Login = () => {
             }
 
             const data = await response.json();
-            // Guardar el token JWT en el localStorage o en una cookie
-            localStorage.setItem('accessToken', data.access_token);
+            
+            dispatch(loginSuccess(data.access_token)); // Guardar el token JWT en el estado
 
             navigate('/userpage'); // Redirige a la página del usuario si la autenticación es exitosa
 
