@@ -77,6 +77,14 @@
 .DctoBox.button{
     align-self: center;
     margin-left: 2%;
+    padding: 10px 20px;
+    background-color: #89B0AE; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 0.7em;
+    width: 100%; 
 }
 
 .formulario-chk button {
@@ -119,7 +127,16 @@
 
 }
 
-
+.realizar-compra{
+        width: 100%;
+        padding: 8px;
+        background-color: rgb(37, 42, 44); 
+        color: #ffffff; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+}
 
 .summary-item{
     display: flex;

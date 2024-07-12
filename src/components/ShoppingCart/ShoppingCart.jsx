@@ -13,7 +13,7 @@ import { incrementQuantity, decrementQuantity, removeItem } from '../../actions/
 const ShoppingCart = ({ closeCart }) => {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart.cartItems);
-    console.log(cartItems)
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
    // const { cartItems, incrementQuantity, decrementQuantity, removeItem } = useContext(CartContext);
     const [coupon, setCoupon] = useState(localStorage.getItem('coupon') || '');
@@ -65,16 +65,21 @@ const ShoppingCart = ({ closeCart }) => {
     }
 
     const handleFinalizePurchase = () => {
-        navigate("/checkout", {
-            state: {
-                subtotal,
-                discountAmount,
-                total,
-            }
-        });
-        window.scrollTo(0, 0);  // Scroll to the top of the page
+        if (!isAuthenticated) {
+            navigate("/login");
+            alert("Debe iniciar sesion para finalizar la compra");
+        } else {
+            // Si está autenticado, navega a la página de checkout
+            navigate("/checkout", {
+                state: {
+                    subtotal,
+                    discountAmount,
+                    total,
+                }
+            });
+            window.scrollTo(0, 0);  // Scroll to the top of the page
+        }
     };
-
 
     
     return (
