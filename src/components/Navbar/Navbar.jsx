@@ -4,17 +4,23 @@ import logoImage from '../../images/homeHLogo.png';
 import searchLogo from '../../images/searchLogo.png';
 import profileLogo from '../../images/profile.png';
 import cartLogo from '../../images/cart.png';
+import addProductLogo from '../../images/addProduct.png';
 import filterPhone from '../../images/VectorfilterPhone2.png';
 import cartPhone from '../../images/VectorcarritoPhone.png';
 import { Link, useNavigate } from 'react-router-dom';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';  
 import { useSelector } from 'react-redux'; 
+import { jwtDecode } from 'jwt-decode';
 
 const Navbar = () => {
     const [input, setinput] = useState("");
     const navigate = useNavigate();
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-    
+    if (isAuthenticated) {
+        const token = localStorage.getItem('accessToken');
+        const decodedToken = jwtDecode(token);
+        var userRole = decodedToken.role;
+    }
     
 
     const handleChange = (value) => {
@@ -48,6 +54,11 @@ const Navbar = () => {
                         <img src={profileLogo} alt="Profile" className='profileLogo' />
                     </Link>
                     <img src={cartLogo} alt="Cart" className='cartLogo' onClick={toggleCart} />
+                    
+                    <Link to={userRole === 'SELLER' ? "/addProduct" : "/"} >
+                    <img src={addProductLogo} alt="Add Product" className='profileLogo' />
+                    </Link>
+                    
                 </div>
             </div>
             <div className="navbar-mobile">

@@ -12,7 +12,7 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 token: action.payload,
-                isAuthenticated: true,
+                isAuthenticated: true
             };
         case LOGOUT:
             localStorage.removeItem('accessToken');
