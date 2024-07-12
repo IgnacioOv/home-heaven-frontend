@@ -1,53 +1,70 @@
 import './Checkout.css';
 import { Link, useLocation} from 'react-router-dom'; 
-import { useEffect } from 'react';
-//import { CartContext } from '../../context/CartProvider';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
+import { jwtDecode } from 'jwt-decode';
+
 
 const Checkout = () => {
-    //const { cartItems } = useContext(CartContext);
-    const cartItems = useSelector((state) => state.cart.cartItems);
+    const cartItems = useSelector((state) => state.cart.cartItems); //obtenemos los cartitems de el estado global
     const location = useLocation();
-    const dispatch = useDispatch();
-
-   /* const handleCompra = ()=> {
-        alert("¡Gracias por tu compra!");
-    }; */
-    const handleCompra = async () => {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(cartItems.map(item => ({
-                product: { productId: item.id }, // Ajusta según tu estructura de datos
-                quantity: item.quantity
-            })))
-        };
-
-        try {
-            const response = await fetch('http://localhost:8080/orders/add', requestOptions);
-            if (!response.ok) {
-                throw new Error('Error al procesar la orden');
-            }
-            alert('¡Gracias por tu compra!');
-            // Puedes redirigir al usuario a una página de confirmación o a la página de inicio
-        } catch (error) {
-            console.error('Error al procesar la orden:', error.message);
-            // Manejar errores como prefieras (mostrar mensaje al usuario, etc.)
-        }
-    };
-
-    useEffect(() => {
-        window.scrollTo(0, 0);  
-    }, []); 
+    const [buyerId, setBuyerId] = useState(null); // Estado para almacenar el buyerId
 
     const subtotal = location.state && location.state.subtotal ? location.state.subtotal : 0;
     const discountAmount = location.state && location.state.discountAmount ? location.state.discountAmount : 0;
     const total = location.state && location.state.total ? location.state.total : 0;
-    
-    
 
+    useEffect(() => {
+        const token = localStorage.getItem('accessToken');
+        if (token) {
+            try {
+                const decodedToken = jwtDecode(token);
+                setBuyerId(decodedToken.buyerId); // Almacena el buyerId en el estado local
+               
+            } catch (error) {
+                console.error('Error decoding token:', error);
+            }
+        }
+    }, []);
+
+
+    const handleCompra = async () => {
+        try {
+            if (!buyerId) {
+                console.error('No se pudo obtener el buyerId');
+                return;
+            }
+            const response = await fetch('http://localhost:8080/orders/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    //'Authorization': `Bearer ${token}` //
+                },
+                body: JSON.stringify({
+                    buyerId: buyerId,
+                    productOrders: cartItems.map(item => ({
+                        product:{
+                            productId: item.productId
+                        },
+                        quantity: item.quantity,
+                        mensaje:mensaje
+                    })),
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error al procesar la orden: ${response.statusText}`);
+            }
+            alert('¡Gracias por tu compra!');
+            navigate('/');
+
+        } catch (error) {
+            console.error('Error al procesar la orden:', error.message);
+            alert('Hubo un error al procesar tu orden. Por favor, inténtalo nuevamente.');
+        }
+    };
+    
+    
     return (
         <div>
 
