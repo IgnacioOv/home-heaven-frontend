@@ -12,7 +12,6 @@ import CategoriesBar from './components/CategoriesBar/CategoriesBar';
 import AddProductForm from './components/AddProduct/AddProduct';
 import HeaderAddProduct from './components/HeaderAddProduct/HeaderAddProduct';
 import UserPage from './components/UserPage/UserPage';
-import HeaderUser from './components/HeaderUser/HeaderUser';
 import Orders from './components/Order/Orders';
 // No se necesita envolver con Provider devuelta porque se hace en el punto
 // de entrada principal osea en el main

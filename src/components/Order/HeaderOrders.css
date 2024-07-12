@@ -69,3 +69,42 @@
     .volverbutton:hover {
         background-color: rgba(193, 189, 189, 0.8);
     }
+
+    .containerorder {
+        padding: 20px;
+    }
+    
+    .order-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    
+    .order-card h3 {
+        margin-top: 0;
+    }
+    
+    .order-card ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .order-card ul li {
+        margin-bottom: 5px;
+    }
+    
+    .volverbutton {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .volverbutton:hover {
+        background-color: #0056b3;
+    }
+    

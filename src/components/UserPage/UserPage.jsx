@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './UserPage.css';
 import HeaderUser from '../HeaderUser/HeaderUser';
@@ -228,9 +228,14 @@ const UserPage = () => {
             <div className="action-button">
                 <Link to="/myorders">
                     <button className="role-button">
-                        {role === 'Comprador' ? 'VER COMPRAS' : 'VER VENTAS'}
+                        {role === 'BUYER' ? 'VER COMPRAS' : 'VER COMPRAS'}
                     </button>
-                </Link>
+                </Link >
+                <div className='space'></div>
+                {role === 'SELLER' && (
+                <Link to="/myorders">
+                        <button className="role-button">VER VENTAS</button>
+                    </Link>)}
             </div>
         </>
     );
