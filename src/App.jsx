@@ -13,9 +13,33 @@ import AddProductForm from './components/AddProduct/AddProduct';
 import HeaderAddProduct from './components/HeaderAddProduct/HeaderAddProduct';
 import UserPage from './components/UserPage/UserPage';
 import Orders from './components/Order/Orders';
+import { useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from './actions/authActions';
 // No se necesita envolver con Provider devuelta porque se hace en el punto
 // de entrada principal osea en el main
 function App() {
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
+
+  useEffect(() => {
+      const checkToken = () => {
+          if (token && isTokenExpired(token)) {
+              dispatch(logout());
+              alert("Session expired. Please log in again.");
+          }
+      };
+
+      checkToken();
+  }, [dispatch, token]);
+
+  const isTokenExpired = (token) => {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const expiry = payload.exp;
+      const now = Math.floor(Date.now() / 1000);
+
+      return now >= expiry;
+  };
   return (
         <Routes>
           <Route path="/" element={<> <Navbar /><CategoriesBar/> <Home /> <Footer /> </>} />

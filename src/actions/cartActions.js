@@ -6,6 +6,8 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const INCREMENT_QUANTITY = 'INCREMENT_QUANTITY';
 export const DECREMENT_QUANTITY = 'DECREMENT_QUANTITY';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const CLEAR_CART = 'CLEAR_CART';
+
 
 export const addToCart = (product) => ({
     type: ADD_TO_CART,
@@ -26,4 +28,8 @@ export const decrementQuantity = (id) => ({
 export const removeItem = (id) => ({
     type: REMOVE_ITEM,
     payload: id
+});
+
+export const clearCart = () => ({
+    type: 'CLEAR_CART'
 });
