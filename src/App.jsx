@@ -16,6 +16,7 @@ import Orders from './components/Order/Orders';
 import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from './actions/authActions';
+import Ventas from './components/Order/Ventas';
 // No se necesita envolver con Provider devuelta porque se hace en el punto
 // de entrada principal osea en el main
 function App() {
@@ -52,6 +53,7 @@ function App() {
           <Route path='search' element={<><Navbar /><CategoriesBar/><SearchResult/><Footer /></>} />
           <Route path="checkout" element={<><Navbar/><CategoriesBar/><Checkout/><Footer/> </>} />
           <Route path='addproduct' element={<><Navbar/><HeaderAddProduct></HeaderAddProduct><AddProductForm/><Footer/> </>} />
+          <Route path="mysellings" element={<Ventas />} />
         </Routes> 
   );
 }

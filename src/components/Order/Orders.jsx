@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import Navbar from '../Navbar/Navbar';  
 import Footer from '../Footer/Footer';  
 import HeaderOrders from './HeaderOrders';
@@ -23,7 +23,7 @@ const Orders = () => {
                             Authorization: `Bearer ${token}`,
                         },
                     });
-                    console.log(response)
+                    
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
@@ -44,6 +44,60 @@ const Orders = () => {
         fetchOrders();
     }, []);
 
+    useEffect(() => {
+        const fetchProductDetails = async () => {
+            const token = localStorage.getItem('accessToken');
+            if (token) {
+                try {
+                    const productIds = orders.flatMap(order => 
+                        order.productOrders.map(productOrder => productOrder.productId)
+                    );
+
+                    const uniqueProductIds = [...new Set(productIds)]; // Get unique product IDs
+
+                    const productDetailsPromises = uniqueProductIds.map(productId => 
+                        fetch(`http://localhost:8080/products/${productId}`, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                Authorization: `Bearer ${token}`,
+                            },
+                        }).then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                    );
+
+                    const productDetailsResponses = await Promise.all(productDetailsPromises);
+                    const productDetailsMap = productDetailsResponses.reduce((acc, product) => {
+                        acc[product.productId] = product;
+                        return acc;
+                    }, {});
+
+                    // Update orders with product details
+                    const updatedOrders = orders.map(order => ({
+                        ...order,
+                        productOrders: order.productOrders.map(productOrder => ({
+                            ...productOrder,
+                            productName: productDetailsMap[productOrder.productId].productName,
+                            price: productDetailsMap[productOrder.productId].price,
+                        })),
+                    }));
+
+                    setOrders(updatedOrders);
+                } catch (error) {
+                    console.error('Error fetching product details', error);
+                }
+            }
+        };
+
+        if (orders.length > 0) {
+            fetchProductDetails();
+        }
+    }, [orders]);
+
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -58,27 +112,28 @@ const Orders = () => {
             <HeaderOrders />
             <div className='containerorder'>
                 <h2>Orders</h2>
-                {orders.length === 0 ? (
-                    <p>No orders found.</p>
-                ) : (
-                    orders.map(order => (
-                        <div key={order.orderId} className="order-card">
-                            <h3>Order ID: {order.orderId}</h3>
-                            <p>Buyer ID: {order.buyerId}</p>
-                            <p>Total: ${order.total.toFixed(2)}</p>
-                            <h4>Products:</h4>
-                            <ul>
-                                {order.productOrders.map(productOrder => (
-                                    <li key={productOrder.productOrderId}>
-                                        <p>Product ID: {productOrder.productId}</p>
-                                        <p>Quantity: {productOrder.quantity}</p>
-                                        <p>Price: ${productOrder.price.toFixed(2)}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))
-                )}
+                <div className="orders-grid">
+                    {orders.length === 0 ? (
+                        <p>No orders found.</p>
+                    ) : (
+                        orders.map(order => (
+                            <div key={order.orderId} className="order-card">
+                                <h3>Order #: {order.orderId}</h3>
+                                <p>Total: ${order.total.toFixed(2)}</p>
+                                <h4>Products:</h4>
+                                <ul>
+                                    {order.productOrders.map(productOrder => (
+                                        <li key={productOrder.productOrderId}>
+                                            <p>Producto: {productOrder.productName}</p>
+                                            <p>Cantidad: {productOrder.quantity}</p>
+                                            <p>Precio: ${productOrder.price.toFixed(2)}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
+                    )}
+                </div>
                 <Link to="/userpage">
                     <button className="volverbutton">
                         Volver

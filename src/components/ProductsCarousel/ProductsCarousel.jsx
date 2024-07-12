@@ -16,8 +16,6 @@ const ProductsCarousel = () => {
           throw new Error(`API request failed with status ${response.status}`);
         }
         const data = await response.json();
-      
-      
         setProducts(data);
       } catch (error) {
         setError(error.message);
@@ -28,16 +26,19 @@ const ProductsCarousel = () => {
     fetchData();
   }, []);
 
+  // Limitando a un máximo de 3 productos
+  const limitedProducts = products.slice(0, 3);
+
   return (
     <div className="carousel">
       {isLoading ? (
         <p>Loading products...</p>
       ) : error ? (
         <p>Error fetching products: {error}</p>
-      ) : products.length === 0 ? (
+      ) : limitedProducts.length === 0 ? (
         <p>No recommended products available</p>
       ) : (
-        products.map((product,index) => (
+        limitedProducts.map((product, index) => (
           <Card key={index} product={product} />
         ))
       )}

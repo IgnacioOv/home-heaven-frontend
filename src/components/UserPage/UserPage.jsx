@@ -231,6 +231,7 @@ const UserPage = () => {
                     </div>
                 </div>
             </div>
+
             <div className="action-button">
                 <Link to="/myorders">
                     <button className="role-button">
@@ -239,15 +240,15 @@ const UserPage = () => {
                 </Link>
                 <div className='space'></div>
                 {role === 'SELLER' && (
-                    <Link to="/myorders">
+                <Link to="/mysellings">
                         <button className="role-button">VER VENTAS</button>
-                    </Link>
-                )}
+                </Link>)}
                 <div className='space'></div>
                 <Link to="/">
                     <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
                 </Link>
             </div>
+        
         </>
     );
 };

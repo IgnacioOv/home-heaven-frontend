@@ -1,110 +1,123 @@
-    .header-category {
-        position: relative;
-        width: 100%;
-        height: 300px;
-        margin-bottom: 20px;
-    }
-    
-    .image-container {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .header-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.5;
-    }
-    
-    .header-category-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: black;
-        text-align: center; 
-        z-index: 2;
-        font-family: 'Poppins', sans-serif;
-        width: 100%;
-    }
-    
-    .main-title {
-        font-size: 2em; 
-        font-weight: bold; 
-        margin-bottom: 20px; 
-    }
-    .category-navigation {
-        font-size: 1em;
-        margin-top: 20px;
-        color: black;
-    }
-    
-    .link-class {
-        color: #000000;
-        font-weight: 450;
-    }
+.header-category {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
 
-    .volverbutton {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        background-color: black;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-    
-    .containerorder{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .volverbutton:hover {
-        background-color: rgba(193, 189, 189, 0.8);
-    }
+.image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
 
-    .containerorder {
-        padding: 20px;
-    }
-    
-    .order-card {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-    }
-    
-    .order-card h3 {
-        margin-top: 0;
-    }
-    
-    .order-card ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    
-    .order-card ul li {
-        margin-bottom: 5px;
-    }
-    
-    .volverbutton {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    .volverbutton:hover {
-        background-color: #0056b3;
-    }
-    
+.header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.header-category-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: center; 
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+}
+
+.main-title {
+    font-size: 2em; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+}
+.category-navigation {
+    font-size: 1em;
+    margin-top: 20px;
+    color: black;
+}
+
+.link-class {
+    color: #000000;
+    font-weight: 450;
+}
+
+.volverbutton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.containerorder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.volverbutton:hover {
+    background-color: rgba(193, 189, 189, 0.8);
+}
+
+.containerorder {
+    padding: 20px;
+}
+
+.order-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.order-card h3 {
+    margin-top: 0;
+}
+
+.order-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-card ul li {
+    margin-bottom: 5px;
+}
+
+.volverbutton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #030303;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.volverbutton:hover {
+    background-color: #999292;
+}
+
+
+.orders-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Define 3 columnas responsivas */
+gap: 20px; /* Espacio entre las tarjetas de Ã³rdenes */
+}
+
+.order-card {
+border: 1px solid #ccc;
+padding: 20px;
+margin-bottom: 20px;
+background-color: #f9f9f9;
+}

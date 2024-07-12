@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './AddProduct.css';
 import { jwtDecode } from 'jwt-decode';
 import { fetchWithAuth } from '../utils/fetchWithAuth';
+import {useNavigate  } from 'react-router-dom'; 
 
 
 
@@ -20,6 +21,7 @@ function AddProductForm() {
   });
 
 
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -57,6 +59,7 @@ function AddProductForm() {
           category: '',
           sellerId: decodedToken.userId,
         });
+        navigate('/')
       }
     } catch (error) {
       alert('Error al añadir el producto');
