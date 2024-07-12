@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './UserPage.css';
 import HeaderUser from '../HeaderUser/HeaderUser';
 import {jwtDecode} from 'jwt-decode';
+import { fetchWithAuth } from '../utils/fetchWithAuth';
 
 const UserPage = () => {
     const [name, setName] = useState('');
@@ -77,17 +78,13 @@ const UserPage = () => {
             };
 
             try {
-                const response = await fetch(`http://localhost:8080/users/edit`, {
+                const response = await fetchWithAuth('http://localhost:8080/users/edit', {
                     method: 'PUT',
                     headers: {
-                        'Access-Control-Allow-Origin': 'http://localhost:5173',
-                        'Access-Control-Request-Method': 'PUT',
                         'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}`,
                     },
                     body: JSON.stringify(updatedUser),
                 });
-
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
