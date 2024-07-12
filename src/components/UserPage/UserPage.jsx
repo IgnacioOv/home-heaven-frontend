@@ -4,8 +4,16 @@ import './UserPage.css';
 import HeaderUser from '../HeaderUser/HeaderUser';
 import {jwtDecode} from 'jwt-decode';
 import { fetchWithAuth } from '../utils/fetchWithAuth';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../actions/authActions';
+
 
 const UserPage = () => {
+    const dispatch = useDispatch();
+    const isAuthenticated = useSelector(state=> state.auth.isAuthenticated);
+   
+    
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [username, setUsername] = useState('');
@@ -103,6 +111,10 @@ const UserPage = () => {
             }
         }
     };
+
+    const handleLogout = ()=>{
+        dispatch(logout());
+    }
 
     return (
         <>
@@ -232,7 +244,11 @@ const UserPage = () => {
                 {role === 'SELLER' && (
                 <Link to="/myorders">
                         <button className="role-button">VER VENTAS</button>
-                    </Link>)}
+                </Link>)}
+                <div className='space'></div>
+                <Link to="/">
+                    <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
+                </Link>
             </div>
         </>
     );
